@@ -1,0 +1,25 @@
+<table class="pro-results-table">
+    <thead>
+        <tr class="table-row">
+            <th class="table-head">Have been looking since</th>
+            <th class="table-head">Objective(s)</th>
+            <th class="table-head">Revenue</th>
+            <th class="table-head">Area</th>
+            <th class="table-head">Open to construction works</th>
+            <th class="table-head">Cart</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each filtered-contacts}}
+        <tr class="table-row">
+            {{> pro-filtered-contacts-row}}
+        </tr>
+        {{/each}}
+        {{#unless filtered-contacts}}
+        <tr>
+            <td colspan="6">sorry no contacts yet</td>
+        </tr>
+        {{/unless}}
+    </tbody>
+</table>
