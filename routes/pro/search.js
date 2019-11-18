@@ -5,7 +5,7 @@ const router = new express.Router();
 //const protectAdminRoute = require("./../middlewares/protectAdminRoute");
 
 router.get("/pro/search",(req,res)=>{
-    res.render("pro/recherche")
+    res.render("pro/recherche",{css: ["filter", "styles"], js: ["script","filter"]})
 })
 
 

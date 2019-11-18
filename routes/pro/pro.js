@@ -5,7 +5,7 @@ const router = new express.Router();
 //const protectAdminRoute = require("./../middlewares/protectAdminRoute");
 
 router.get("/pro/", (req,res)=>{
-    res.render("pro/index-pro", {css: ["filter", "styles"]})
+    res.render("pro/index-pro")
 })
 
 router.get("/pro/my-account", (req,res)=>{
