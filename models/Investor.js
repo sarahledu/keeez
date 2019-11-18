@@ -38,8 +38,9 @@ const investorSchema = new Schema(
       type: ["Now!!!!", "In the next few months"],
       default: null
     },
-    status: { type: Boolean, default: false }
+    status: { type: Boolean, default: false },
     // completed_at: {type: Date},
+    type: { type: String, default: "investor" }
   },
   {
     timestamps: { createdAt: "created_at" }
