@@ -6,7 +6,7 @@ const proSchema = new Schema(
   {
     name: { type: String, required: true },
     lastname: { type: String, required: true },
-    companyname: { type: Schema.Types.ObjectId, ref: "Company" }
+    companyname: { type: Schema.Types.ObjectId, ref: "Company" },
     email: { type: String, required: true },
     password: { type: String, required: true },
     phone_number: { type: Number, required: true },
