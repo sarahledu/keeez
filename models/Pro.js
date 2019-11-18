@@ -13,7 +13,8 @@ const proSchema = new Schema(
     form_bought: {
       type: [{ type: Schema.Types.ObjectId, ref: "Investor" }],
       default: null
-    }
+    },
+    type: { type: String, default: "pro" },
   },
   {
     timestamps: { createdAt: "created_at" }

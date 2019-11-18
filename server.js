@@ -65,14 +65,14 @@ server.use(function checkLoggedIn(req, res, next) {
 // ------------------------------------------
 const indexRouter = require("./routes/index.js");
 const investRouter = require("./routes/invest/invest.js");
-const authRouter = require("./routes/auth.js");
+const authRouter = require("./routes/invest/auth-invest.js");
 const blogRouter = require("./routes/invest/blog.js");
 const proRouter = require("./routes/pro/pro.js");
 const searchRouter = require("./routes/pro/search.js");
 
 server.use(indexRouter);
 server.use(investRouter);
-server.use("/auth", authRouter);
+server.use(authRouter);
 server.use(blogRouter);
 server.use(proRouter);
 server.use(searchRouter);
