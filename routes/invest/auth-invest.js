@@ -1,5 +1,6 @@
 const express = require("express");
 const router = new express.Router();
+const bcrypt = require("bcrypt");
 
 // INVESTOR
 const investorModel = require("../../models/Investor");
@@ -8,7 +9,7 @@ router.get("/signin", (req, res) => {
   res.render("auth/investor/signin");
 });
 
-router.post("/signin", (req, res, next) => {
+router.post("/signin", (req, res) => {
   const user = req.body;
   investorModel
     .findOne({ email: user.email })
@@ -26,7 +27,7 @@ router.post("/signin", (req, res, next) => {
         req.session.currentUser = dbRes;
         return res.redirect("/");
       } else {
-        return res.render("signin", {
+        return res.render("auth/investor/signin", {
           msg: { text: "Password is wrong..", status: "wrong" }
         });
       }
