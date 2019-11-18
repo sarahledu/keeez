@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const bcrypt = require("bcrypt");
+const bcrypt = require(process.env.BCRYPT);
 
 // PRO
 const proModel = require("../../models/Pro");
