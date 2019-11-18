@@ -9,12 +9,12 @@ const proSchema = new Schema(
     companyname: { type: Schema.Types.ObjectId, ref: "Company" },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    phone_number: { type: Number, required: true },
+    phone_number: { type: Number, required: false },
     form_bought: {
       type: [{ type: Schema.Types.ObjectId, ref: "Investor" }],
       default: null
     },
-    type: { type: String, default: "pro" },
+    type: { type: String, default: "pro" }
   },
   {
     timestamps: { createdAt: "created_at" }
