@@ -4,4 +4,8 @@ const router = new express.Router();
 // const artistModel = require("./../models/Artist");
 //const protectAdminRoute = require("./../middlewares/protectAdminRoute");
 
+router.get("/pro/search",(req,res)=>{
+    res.render("pro/recherche")
+})
+
 module.exports = router;
