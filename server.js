@@ -83,7 +83,7 @@ const authInvestRouter = require("./routes/invest/auth.js");
 const blogRouter = require("./routes/invest/blog.js");
 const proRouter = require("./routes/pro/pro.js");
 const authProRouter = require("./routes/auth.js/index.js");
-const rechercheRouter = require("./routes/pro/recherche.js");
+const rechercheRouter = require("./routes/pro/search.js/index.js");
 
 
 
