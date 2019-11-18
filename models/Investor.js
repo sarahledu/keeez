@@ -9,12 +9,12 @@ const investorSchema = new Schema(
     email: { type: String, required: true },
     password: { type: String, required: true },
     phone_number: { type: Number, required: true },
-    matrimonial_status: [
-      "married",
-      "domestic partnership",
-      "single",
-      "divorced",
-      "widowed"
+    marital_status: [
+      "Domestic partnership",
+      "Divorced",
+      "Married",
+      "Single",
+      "Widowed"
     ],
     nbr_child: { type: Number, default: null },
     total_revenue: { type: Number, default: null },
