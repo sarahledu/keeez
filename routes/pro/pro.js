@@ -8,5 +8,7 @@ router.get("/pro/", (req,res)=>{
     res.render("pro/index-pro")
 })
 
-
+router.get("/pro/my-account", (req,res)=>{
+    res.render("pro/dashboard")
+})
 module.exports = router;
