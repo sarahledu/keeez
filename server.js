@@ -1,13 +1,13 @@
 // initial config
 require("dotenv").config(); // import all key/value pairs from .env in process.env : really usefull when going online :)
 require("./config/mongo"); // database connection setup
-require("./utils/hbs_helpers"); // custom functions adding usefull features to hbs templates
+//require("./utils/hbs_helpers"); // custom functions adding usefull features to hbs templates
 
 // dependencies injection
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
-const flash = require("connect-flash");
+//const flash = require("connect-flash");
 const session = require("express-session");
 
 // ------------------------------------------
