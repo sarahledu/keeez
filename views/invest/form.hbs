@@ -34,14 +34,28 @@
         <option value="Example1">
         <option value="Example2">
     </datalist>
+
+    <label for="construction_works">Are you willing to do some construction works?</label>
+    <input type="construction_works" id="construction_works" name="construction_works">
+
     <label for="areas">Where do you want to invest?</label>
     <datalist id="areas">
         <option value="" selected>
         <option disabled value="──────────">
-        <option value="A une heure de Paris">
-        <option value="A deux heures en train">
+        <option value="One hour from Paris">
+        <option value="Two hours by train from Paris">
         <option value="Anywhere ! As long as money's raining"></option>
     </datalist>
+
+    <label for="timeline">When will you be ready to invest?</label>
+    <datalist id="timeline">
+        <option value="" selected>
+        <option disabled value="──────────">
+        <option value="Now!!!!">
+        <option value="In the next few months">
+    </datalist>
+
+
     {{!-- Adding property here  --}}
     <button class="btn">Submit my form</button>
 </form>
