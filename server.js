@@ -60,7 +60,6 @@ server.use(function exposeFlashMessage(req, res, next) {
   next();
 });
 
-
 //------------------------------------------
 // Login
 // ------------------------------------------
@@ -78,19 +77,24 @@ server.use(function checkLoggedIn(req, res, next) {
 //------------------------------------------
 // SPLITED ROUTING
 // ------------------------------------------
-const baseRouter = require("./routes/base.js");
-const artistRouter = require("./routes/artist.js");
-const styleRouter = require("./routes/style.js");
-const albumRouter = require("./routes/album.js");
-const authRouter = require("./routes/auth.js");
-const labelRouter=require("./routes/label.js")
+const indexRouter = require("./routes/index.js");
+const investRouter = require("./routes/invest/invest.js");
+const authInvestRouter = require("./routes/invest/auth.js");
+const blogRouter = require("./routes/invest/blog.js");
+const proRouter = require("./routes/pro/pro.js");
+const authProRouter = require("./routes/auth.js/index.js");
+const rechercheRouter = require("./routes/pro/recherche.js");
 
-server.use(baseRouter);
-server.use(artistRouter);
-server.use(styleRouter);
-server.use(albumRouter);
-server.use("/auth", authRouter);
-server.use(labelRouter)
+
+
+server.use(indexRouter);
+server.use(investRouter);
+server.use("/auth",authInvestRouter);
+server.use(blogRouter);
+server.use("/auth", authProRouter);
+server.use(proRouter);
+server.use(rechercheRouter);
+
 
 server.listen(process.env.PORT, () => {
   console.log(`server runs @ : http://localhost:${process.env.PORT}`);
