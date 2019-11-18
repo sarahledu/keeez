@@ -6,7 +6,12 @@
         <div>
             <a href="/">Investor</a>
             <a href="/pro/contact">Contact us</a>
+            {{#unless isLoggedIn}}
             <a href="/pro/signin">Signin</a>
+            {{/unless}}
+            {{#if isLoggedIn}}
+            <a href="/logout">Log out</a>
+            {{/if}}
         </div>
     </nav>
 </header>

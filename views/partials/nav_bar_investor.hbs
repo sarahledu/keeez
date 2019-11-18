@@ -7,7 +7,12 @@
             <a href="/blog">Blog</a>
             <a href="/about">About</a>
             <a href="/pro">Pro</a>
+            {{#unless isLoggedIn}}
             <a href="/signin">Signin</a>
+            {{/unless}}
+            {{#if isLoggedIn}}
+            <a href="/logout">Log out</a>
+            {{/if}}
         </div>
     </nav>
 </header>

@@ -8,6 +8,10 @@ const path = require("path");
 const hbs = require("hbs");
 const session = require("express-session");
 
+const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo")(session);
+const cookieParser = require("cookie-parser");
+
 // ------------------------------------------
 // SERVER CONFIG
 // ------------------------------------------
@@ -36,13 +40,17 @@ hbs.registerPartials(path.join(__dirname, "views/partials"));
 
 // enable "flash messaging" system
 // the depend on session mechanism
+
 server.use(
   session({
     secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 6000000 }, // in millisec
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    }),
     saveUninitialized: true,
     resave: true
-    // req.session.cookie.expires = new Date(Date.now() + hour)
-    // req.session.cookie.maxAge = hour
   })
 );
 
@@ -56,7 +64,6 @@ server.use(function checkLoggedIn(req, res, next) {
   delete copy.password; // remove password from clone
   res.locals.currentUser = copy; // expose to the view template (hbs)
   res.locals.isLoggedIn = Boolean(copy);
-  res.locals.isAdmin = Boolean(copy.role && copy.role === "admin");
   next();
 });
 

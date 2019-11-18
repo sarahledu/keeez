@@ -1,14 +1,12 @@
 const express = require("express");
 const router = new express.Router();
-// const albumModel = require("./../models/Album");
-// const artistModel = require("./../models/Artist");
-//const protectAdminRoute = require("./../middlewares/protectAdminRoute");
+const isLoggedIn = require("./../../middlewares/isLoggedIn");
 
-router.get("/pro/", (req,res)=>{
-    res.render("pro/index-pro")
-})
+router.get("/pro/", (req, res) => {
+  res.render("pro/index-pro");
+});
 
-router.get("/pro/my-account", (req, res) => {
+router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
   res.render("pro/dashboard");
 });
 module.exports = router;
