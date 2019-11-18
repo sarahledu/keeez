@@ -2,7 +2,7 @@ const mongoose = require("mongoose"); // import mongoose dependencie
 
 const Schema = mongoose.Schema;
 
-const proSchema = new Schema(
+const companySchema = new Schema(
   {
     name: { type: String, required: true },
     siret: { type: String, required: true }
@@ -12,6 +12,6 @@ const proSchema = new Schema(
   }
 );
 
-const companyModel = mongoose.model("Company", proSchema);
+const companyModel = mongoose.model("Company", companySchema);
 
 module.exports = companyModel;
