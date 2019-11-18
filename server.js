@@ -63,13 +63,18 @@ server.use(function checkLoggedIn(req, res, next) {
 //------------------------------------------
 // SPLITED ROUTING
 // ------------------------------------------
+
+// INVESTOR ROUTING
 const indexRouter = require("./routes/index.js");
 const investRouter = require("./routes/invest/invest.js");
 const authInvestorRouter = require("./routes/invest/auth-invest.js");
-const authProRouter = require("./routes/pro/auth-pro.js");
-const blogRouter = require("./routes/invest/blog.js");
+const blogRouter = require("./routes/blog.js");
+
+// PRO ROUTING
 const proRouter = require("./routes/pro/pro.js");
 const searchRouter = require("./routes/pro/search.js");
+const contactRouter = require("./routes/pro/contact.js");
+const authProRouter = require("./routes/pro/auth-pro.js");
 
 server.use(indexRouter);
 server.use(investRouter);
@@ -78,6 +83,7 @@ server.use(authProRouter);
 server.use(blogRouter);
 server.use(proRouter);
 server.use(searchRouter);
+server.use(contactRouter);
 
 server.listen(process.env.PORT, () => {
   console.log(`server runs @ : http://localhost:${process.env.PORT}`);
