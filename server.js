@@ -1,13 +1,11 @@
 // initial config
 require("dotenv").config(); // import all key/value pairs from .env in process.env : really usefull when going online :)
 require("./config/mongo"); // database connection setup
-require("./utils/hbs_helpers"); // custom functions adding usefull features to hbs templates
 
 // dependencies injection
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
-const flash = require("connect-flash");
 const session = require("express-session");
 
 // ------------------------------------------
@@ -48,18 +46,6 @@ server.use(
   })
 );
 
-server.use(flash()); // use the flash messages lib
-// flash messages last for 1 client/server cycle and are then erased from memory
-
-// Custom middle ware
-// every time the server is called through HTTP ...
-// this exposeFlashMessage callback will be executed
-server.use(function exposeFlashMessage(req, res, next) {
-  res.locals.success_msg = req.flash("success");
-  res.locals.error_msg = req.flash("error");
-  next();
-});
-
 //------------------------------------------
 // Login
 // ------------------------------------------
@@ -79,22 +65,17 @@ server.use(function checkLoggedIn(req, res, next) {
 // ------------------------------------------
 const indexRouter = require("./routes/index.js");
 const investRouter = require("./routes/invest/invest.js");
-const authInvestRouter = require("./routes/invest/auth.js");
+const authRouter = require("./routes/auth.js");
 const blogRouter = require("./routes/invest/blog.js");
 const proRouter = require("./routes/pro/pro.js");
-const authProRouter = require("./routes/auth.js/index.js");
-const rechercheRouter = require("./routes/pro/search.js/index.js");
-
-
+const searchRouter = require("./routes/pro/search.js");
 
 server.use(indexRouter);
 server.use(investRouter);
-server.use("/auth",authInvestRouter);
+server.use("/auth", authRouter);
 server.use(blogRouter);
-server.use("/auth", authProRouter);
 server.use(proRouter);
-server.use(rechercheRouter);
-
+server.use(searchRouter);
 
 server.listen(process.env.PORT, () => {
   console.log(`server runs @ : http://localhost:${process.env.PORT}`);
