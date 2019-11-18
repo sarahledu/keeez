@@ -21,12 +21,17 @@ const investorSchema = new Schema(
     monthly_savings: { type: Number, default: null },
     annual_revenue_taxes: { type: Number, default: null },
     objectives: { type: ["Example1", "Example2"], default: null },
+    construction_works: {type:Boolean, default: null},
     properties: {
       type: Schema.Types.ObjectId,
       ref: "Properties"
     },
     areas: {
-      type: ["A une heure de Paris", "A deux heures de train"],
+      type: ["One hour from Paris", "A deux heures de train"],
+      default: null
+    },
+    timeline: {
+      type: ["Now!!!!", "In the next few months"],
       default: null
     },
     status: { type: Boolean, default: false }
