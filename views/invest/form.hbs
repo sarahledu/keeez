@@ -1,0 +1,44 @@
+<h1 class="title">Hello {{user.name}}!</h1>
+
+<form id="fill-my-form" method="post" action="/my-form" class="form">
+
+    <label for="marital_status">Marital status</label>
+    <datalist id="marital_status">
+        <option value="" selected>
+        <option disabled value="──────────">
+        <option value="Domestic partnership">
+        <option value="Divorced">
+        <option value="Married">
+        <option value="Single">
+        <option value="Widowed">
+    </datalist>
+
+    <label for="nbr_child">How many children do you have?</label>
+    <input class="input" id="nbr_child" name="nbr_child" type="number" required>
+
+    <label for="total_revenu">What's your monthly revenu?</label>
+    <input class="input" id="total_revenu" name="total_revenu" type="number" required>
+
+    <label for="monthly_savings">What's your monthly saving capacity?</label>
+    <input class="input" id="monthly_savings" name="monthly_savings" type="number" required>
+
+    <label for="annual_revenu_taxes">What's your annual revenu taxes?</label>
+    <input class="input" id="annual_revenu_taxes" name="annual_revenu_taxes" type="number" required>
+
+    <label for="objectives">What's your main objectives?</label>
+    <datalist id="objectives">
+        <option value="" selected>
+        <option disabled value="──────────">
+        <option value="Example1">
+        <option value="Example2">
+    </datalist>
+    <label for="areas">What's your main objectives?</label>
+    <datalist id="areas">
+        <option value="" selected>
+        <option disabled value="──────────">
+        <option value="A une heure de Paris">
+        <option value="A deux heures en">
+    </datalist>
+    {{!-- Adding property here  --}}
+    <button class="btn">Submit my form</button>
+</form>
