@@ -19,7 +19,7 @@ const investorSchema = new Schema(
     nbr_child: { type: Number, default: null },
     total_revenue: { type: Number, default: null },
     monthly_savings: { type: Number, default: null },
-    annual_revenu_taxes: { type: Number, default: null },
+    annual_revenue_taxes: { type: Number, default: null },
     objectives: { type: ["Example1", "Example2"], default: null },
     properties: {
       type: Schema.Types.ObjectId,
