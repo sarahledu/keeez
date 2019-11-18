@@ -8,4 +8,5 @@ router.get("/pro/search",(req,res)=>{
     res.render("pro/recherche")
 })
 
+
 module.exports = router;
