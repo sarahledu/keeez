@@ -25,7 +25,12 @@ router.post("/signin", (req, res) => {
       // user has been found in DB !
       if (bcrypt.compareSync(user.password, dbRes.password)) {
         req.session.currentUser = dbRes;
-        return res.redirect("/");
+        console.log(dbRes.status);
+        if (dbRes.status === false) {
+          return res.redirect("/form");
+        } else {
+          return res.redirect("/dashboard");
+        }
       } else {
         return res.render("auth/investor/signin", {
           msg: { text: "Password is wrong..", status: "wrong" }
