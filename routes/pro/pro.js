@@ -2,16 +2,11 @@ const express = require("express");
 const router = new express.Router();
 const isLoggedIn = require("./../../middlewares/isLoggedIn");
 
-//Pro landing page
 router.get("/pro/", (req, res) => {
-  res.render("pro/index-pro");
-});
-router.get("/pro/", (req, res) => {
-  res.render("pro/index-pro");
+  res.render("pro/index-pro", {css: ["pro"]});
 });
 
-//Pro dashboard
 router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
-  res.render("pro/dashboard", {css: ["filter", "styles"], js: ["script","filter"]});
+  res.render("pro/dashboard", {css: ["filter", "styles", "pro"], js: ["script","filter"]});
 });
 module.exports = router;

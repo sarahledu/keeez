@@ -1,5 +1,6 @@
 .dropdown-check-list {
   display: inline-block;
+  outline: none;
 }
 
 .dropdown-check-list .anchor {
