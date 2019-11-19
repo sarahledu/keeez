@@ -1,19 +1,19 @@
 {{!-- Gérer le nom si l'investisseur est loggé ou non --}}
 {{> nav_bar_investor}}
-<h1 class="title">Hello {{user.name}}!</h1>
+<h1 class="title">Hello {{user.firstname}}!</h1>
 
 
 <form id="fill-my-form" method="post" action="/my-form" class="form">
 
     <label for="marital_status">Marital status</label>
     <select id="marital_status" required>
-        <option value="" selected>
-        <option disabled value="──────────">
-        <option value="Domestic partnership">
-        <option value="Divorced">
-        <option value="Married">
-        <option value="Single">
-        <option value="Widowed">
+        <option value="" selected></option>
+        <option disabled value="──────────">──────────</option>
+        <option value="Domestic partnership">Domestic partnership</option>
+        <option value="Divorced">Divorced</option>
+        <option value="Married">Married</option>
+        <option value="Single">Single</option>
+        <option value="Widowed">Widowed</option>
     </select>
 
     <label for="nbr_child">How many children do you have?</label>
@@ -30,10 +30,10 @@
 
     <label for="objectives">What are your main objective(s)?</label>
     <select id="objectives" required>
-        <option value="" selected>
-        <option disabled value="──────────">
-        <option value="Example1">
-        <option value="Example2">
+        <option value="" selected></option>
+        <option disabled value="──────────">──────────</option>
+        <option value="Example1">Example1</option>
+        <option value="Example2">Example2</option>
     </select>
 
     <label for="construction_works">Are you willing to do some construction works?</label>
@@ -41,19 +41,19 @@
 
     <label for="areas">Where do you want to invest?</label>
     <select id="areas" required>
-        <option value="" selected>
-        <option disabled value="──────────">
-        <option value="One hour from Paris">
-        <option value="Two hours by train from Paris">
-        <option value="Anywhere ! As long as money's raining"></option>
+        <option value="" selected></option>
+        <option disabled value="──────────">──────────</option>
+        <option value="One hour from Paris">One hour from Paris</option>
+        <option value="Two hours by train from Paris">Two hours by train from Paris</option>
+        <option value="Anywhere ! As long as money's raining">Anywhere ! As long as money's raining</option>
     </select>
 
     <label for="timeline">When will you be ready to invest?</label>
     <select id="timeline">
-        <option value="" selected>
-        <option disabled value="──────────">
-        <option value="Now!!!!">
-        <option value="In the next few months">
+        <option value="" selected></option>
+        <option disabled value="──────────">──────────</option>
+        <option value="Now!!!!">Now!!!!</option>
+        <option value="In the next few months">In the next few months</option>
     </select>
 
     {{!-- Adding property here  --}}
