@@ -6,7 +6,7 @@
 <form id="fill-my-form" method="post" action="/my-form" class="form">
 
     <label for="marital_status">Marital status</label>
-    <datalist id="marital_status">
+    <datalist id="marital_status" required>
         <option value="" selected>
         <option disabled value="──────────">
         <option value="Domestic partnership">
@@ -29,7 +29,7 @@
     <input class="input" id="annual_revenue_taxes" name="annual_revenue_taxes" type="number" required>
 
     <label for="objectives">What are your main objective(s)?</label>
-    <datalist id="objectives">
+    <datalist id="objectives" required>
         <option value="" selected>
         <option disabled value="──────────">
         <option value="Example1">
@@ -37,10 +37,10 @@
     </datalist>
 
     <label for="construction_works">Are you willing to do some construction works?</label>
-    <input type="construction_works" id="construction_works" name="construction_works">
+    <input type="construction_works" id="construction_works" name="construction_works" required>
 
     <label for="areas">Where do you want to invest?</label>
-    <datalist id="areas">
+    <datalist id="areas" required>
         <option value="" selected>
         <option disabled value="──────────">
         <option value="One hour from Paris">
@@ -55,7 +55,6 @@
         <option value="Now!!!!">
         <option value="In the next few months">
     </datalist>
-
 
     {{!-- Adding property here  --}}
     <button class="btn">Submit my form</button>
