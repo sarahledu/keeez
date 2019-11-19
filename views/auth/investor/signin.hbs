@@ -5,11 +5,11 @@
         <h1 class="form-title">Welcome Back!</h1>
         <p class="form-subtitle">Enjoy yourself and be comfortable</p>
     </header>
-
-    {{#if msg}}
-    <p class="message {{msg.status}}">{{msg.text}}</p>
-    {{/if}}
+    <div><img id="img-sign" src="/img/sign.png" alt=""></div>
     <section class="sign-block">
+        {{#if msg}}
+        <p class="message {{msg.status}}">{{msg.text}}</p>
+        {{/if}}
         <form method="post" action="/signin" id="form_user">
             <div class="form-item-wrapper">
                 {{!-- <label for="email" class="label-ref label">Email</label> --}}
@@ -21,7 +21,8 @@
                     name="password">
             </div>
             <button class="button-primary">Log in !</button>
+            <p class="form-sub-infos">Not registered? <a href="/signup" class="button-link-form">Create an account</a>
+            </p>
         </form>
-        <p class="form-sub-infos">Not registered? <a href="/signup" class="button-link-form">Create an account</a></p>
     </section>
 </section>
