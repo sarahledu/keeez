@@ -25,7 +25,6 @@ router.post("/signin", (req, res) => {
       // user has been found in DB !
       if (bcrypt.compareSync(user.password, dbRes.password)) {
         req.session.currentUser = dbRes;
-        console.log(dbRes.status);
         if (dbRes.status === false) {
           return res.redirect("/form");
         } else {
