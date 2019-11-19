@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
     
 }
 
@@ -46,6 +45,7 @@ body{
     justify-content: center;
     height: 14vh
 }
+
 #page-container {
     position: relative;
     min-height: 100vh;
@@ -61,3 +61,7 @@ body{
     width: 100%;
     ;            /* Footer height */
   }
+  .type-user {
+    border: solid 2px black;
+    border-radius: 5px;
+}
