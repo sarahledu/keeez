@@ -82,6 +82,7 @@ const proRouter = require("./routes/pro/pro.js");
 const searchRouter = require("./routes/pro/search.js");
 const contactRouter = require("./routes/pro/contact.js");
 const authProRouter = require("./routes/pro/auth-pro.js");
+const cartRouter = require("./routes/pro/cart.js");
 
 server.use(indexRouter);
 server.use(investRouter);
@@ -91,6 +92,7 @@ server.use(blogRouter);
 server.use(proRouter);
 server.use(searchRouter);
 server.use(contactRouter);
+server.use(cartRouter);
 
 server.listen(process.env.PORT, () => {
   console.log(`server runs @ : http://localhost:${process.env.PORT}`);

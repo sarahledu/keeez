@@ -1,15 +1,16 @@
 <header>
-    <nav>
+    <nav class="main-nav">
         <div>
-            <a href="/"><img src="" alt="logo"></a>
+            <a href="/"><img class="logo-nav" src="img/keeyz-logo.png" alt="keez-logo"></a>
         </div>
-        <div>
+        <div class="link-nav">
             <a href="/">Investor</a>
             <a href="/pro/contact">Contact us</a>
             {{#unless isLoggedIn}}
             <a href="/pro/signin">Signin</a>
             {{/unless}}
             {{#if isLoggedIn}}
+            <a href="/pro/cart"><i class="fas fa-shopping-cart"></i></a>
             <a href="/logout">Log out</a>
             {{/if}}
         </div>
