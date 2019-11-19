@@ -39,28 +39,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 14vh;
+    height: 14vh
 }
 
 #page-container {
     position: relative;
-    min-height: 85vh;
-}
-
-#content-wrap {
-    padding-bottom: 2.5rem;
-    /* Footer height */
-}
-
-#footer {
+    min-height: 100vh;
+  }
+  
+  #content-wrap {
+    padding-bottom: 14vh;    /* Footer height */
+  }
+  
+  #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;
-    /* Footer height */
-}
-
-.type-user {
+    ;            /* Footer height */
+  }
+  .type-user {
     border: solid 2px black;
     border-radius: 5px;
 }
