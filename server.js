@@ -79,7 +79,6 @@ const blogRouter = require("./routes/blog.js");
 
 // PRO ROUTING
 const proRouter = require("./routes/pro/pro.js");
-const searchRouter = require("./routes/pro/search.js");
 const contactRouter = require("./routes/pro/contact.js");
 const authProRouter = require("./routes/pro/auth-pro.js");
 const cartRouter = require("./routes/pro/cart.js");
@@ -90,7 +89,6 @@ server.use(authInvestorRouter);
 server.use(authProRouter);
 server.use(blogRouter);
 server.use(proRouter);
-server.use(searchRouter);
 server.use(contactRouter);
 server.use(cartRouter);
 

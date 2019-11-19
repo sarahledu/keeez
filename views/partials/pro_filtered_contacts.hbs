@@ -12,12 +12,12 @@
         </thead>
 
         <tbody>
-            {{#each filtered-contacts}}
+            {{#each investors}}
             <tr class="table-row">
                 {{> pro_filtered_contact_row}}
             </tr>
             {{/each}}
-            {{#unless filtered-contacts}}
+            {{#unless investors}}
             <tr>
                 <td colspan="6">sorry no contacts yet</td>
             </tr>

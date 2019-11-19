@@ -45,3 +45,8 @@
     align-items: center;
     width: 25%;
 }
+
+.table-row {
+    display: flex;
+  }
+  

@@ -2,3 +2,22 @@
 display: flex;
 justify-content: space-evenly;
 }
+
+.value-proposition>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.value-proposition>div>img{
+    height: 300px;
+    width:auto;
+}
+
+body{
+    background-color: #f48c6c;
+}
+
+
