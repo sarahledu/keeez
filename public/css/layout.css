@@ -39,20 +39,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 14vh;
+    height: 14vh
 }
 #page-container {
     position: relative;
-    min-height: 85vh;
+    min-height: 100vh;
   }
   
   #content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
+    padding-bottom: 14vh;    /* Footer height */
   }
   
   #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;            /* Footer height */
+    ;            /* Footer height */
   }
