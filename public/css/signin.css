@@ -64,6 +64,11 @@ body {
     border: none;
     background-color: #e6dfdf;
     border-radius: 2px;
+    text-indent: 20px;
+}
+
+.main-footer * {
+    color: white;
 }
 
 .button-primary {
