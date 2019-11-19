@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    
+
 }
 
 .main-nav {
@@ -41,18 +41,26 @@
     justify-content: center;
     height: 14vh;
 }
+
 #page-container {
     position: relative;
     min-height: 85vh;
-  }
-  
-  #content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
-  }
-  
-  #footer {
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+    /* Footer height */
+}
+
+#footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;            /* Footer height */
-  }
+    height: 2.5rem;
+    /* Footer height */
+}
+
+.type-user {
+    border: solid 2px black;
+    border-radius: 5px;
+}
