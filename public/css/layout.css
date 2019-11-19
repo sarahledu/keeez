@@ -2,10 +2,9 @@
     padding: 0;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    
 }
 
-body{
+body {
     font-size: 15px;
 }
 
@@ -26,6 +25,7 @@ body{
     text-decoration: none;
     color: white;
     font-size: 18px;
+    font-weight: 500;
 }
 
 .logo-nav {
@@ -49,19 +49,25 @@ body{
 #page-container {
     position: relative;
     min-height: 100vh;
-  }
-  
-  #content-wrap {
-    padding-bottom: 14vh;    /* Footer height */
-  }
-  
-  #footer {
+}
+
+#content-wrap {
+    padding-bottom: 14vh;
+    /* Footer height */
+}
+
+#footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    ;            /* Footer height */
-  }
-  .type-user {
-    border: solid 2px black;
+    ;
+    /* Footer height */
+}
+
+.type-user {
+    border: solid 2px #4F5D75;
+    background-color: #4F5D75;
+    padding: 3px 6px;
     border-radius: 5px;
+    box-shadow: 0px 2px 3px black;
 }
