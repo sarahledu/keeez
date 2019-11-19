@@ -1,0 +1,33 @@
+.form-container {
+    background-color: #e6dfdf;
+}
+
+.sign-block {
+    background-color: white;
+    width: 460px;
+}
+
+#form_user {
+    display: flex;
+    flex-direction: column;
+}
+
+#form_user * {
+    width: 400px;
+}
+
+.form-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-primary {
+    background-color: #F48C6C;
+    border-radius: 5px;
+    border: none;
+}
+
+.button-link-form {
+    color: #F48C6C;
+}
