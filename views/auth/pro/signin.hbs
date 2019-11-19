@@ -1,25 +1,32 @@
 {{>nav_bar_pro}}
-<section class="sign form-container">
+<section class="form-container">
     <header class="form-header">
         <h1 class="form-title">Welcome back pro!</h1>
         <p class="form-subtitle">Enjoy yourself and be comfortable</p>
     </header>
-    {{#if msg}}
-    <p class="message {{msg.status}}">{{msg.text}}</p>
-    {{/if}}
-    <form method="post" action="/pro/signin" id="form_user">
-        <div class="form-item-wrapper">
-            <label for="email" class="label-ref label">Email</label>
-            <input id="email" type="email" class="input-text input" name="email" placeholder="albert.biceps@gmail.com"
-                required value="amine@yeay.fr">
-        </div>
-        <div class="form-item-wrapper flexed-item">
-            <label for="password" class="label-ref label">Password</label>
-            <input id="password" type="password" class="input-text input" placeholder="••••••" required value="1234"
-                name="password">
-        </div>
-        <button class="button-primary white">Log in !</button>
-    </form>
 
-    <p class="form-sub-infos">Don't have an account yet ? <a href="/pro/signup" class="button-link-form">Sign Up</a></p>
+    <div><img id="img-sign" src="/img/sign.png" alt="cloud-connection"></div>
+
+    <section class="sign-block">
+        {{#if msg}}
+        <p class="message {{msg.status}}">{{msg.text}}</p>
+        {{/if}}
+
+        <form method="post" action="/pro/signin" id="form_user">
+            <div class="form-item-wrapper">
+                {{!-- <label for="email" class="label-ref label">Email</label> --}}
+                <input id="email" type="email" class="input-text input" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-item-wrapper flexed-item">
+                {{!-- <label for="password" class="label-ref label">Password</label> --}}
+                <input id="password" type="password" class="input-text input" placeholder="••••••" required
+                    name="password">
+            </div>
+            <button class="button-primary white">Log in !</button>
+            <p class="form-sub-infos">Don't have an account yet ? <a href="/pro/signup" class="button-link-form">Sign
+                    Up</a>
+            </p>
+        </form>
+    </section>
+
 </section>

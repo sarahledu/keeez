@@ -8,7 +8,7 @@ const companyModel = require("../../models/Company");
 
 //signin routes
 router.get("/pro/signin", (req, res) => {
-  res.render("auth/pro/signin");
+  res.render("auth/pro/signin", { css: ["signin"] });
 });
 
 router.post("/pro/signin", (req, res) => {
