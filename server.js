@@ -1,6 +1,7 @@
 // initial config
 require("dotenv").config(); // import all key/value pairs from .env in process.env : really usefull when going online :)
 require("./config/mongo"); // database connection setup
+require("./utils/hbs_helper");
 
 // dependencies injection
 const express = require("express");
@@ -64,6 +65,9 @@ server.use(function checkLoggedIn(req, res, next) {
   delete copy.password; // remove password from clone
   res.locals.currentUser = copy; // expose to the view template (hbs)
   res.locals.isLoggedIn = Boolean(copy);
+  // Use this line to check the user status in HBS
+  res.locals.ifFormedFilled = copy.status;
+  res.locals.userType = copy.type;
   next();
 });
 

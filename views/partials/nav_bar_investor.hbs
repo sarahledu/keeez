@@ -10,7 +10,9 @@
             <a href="/signin">Signin</a>
             {{/unless}}
             {{#if isLoggedIn}}
+            {{#if ifFormedFilled}}
             <a href="/dashboard">Dashboard</a>
+            {{/if}}
             <a href="/logout">Log out</a>
             {{/if}}
             <a class="type-user" href="/pro">Pro</a>

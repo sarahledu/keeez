@@ -4,16 +4,19 @@
             <a href="/pro"><img class="logo-nav" src="./img/keeyz-logo.png" alt="keez-logo"></a>
         </div>
         <div class="link-nav">
-            <a href="/">Investor</a>
             <a href="/pro/contact">Contact us</a>
             {{#unless isLoggedIn}}
             <a href="/pro/signin">Signin</a>
             {{/unless}}
+
             {{#if isLoggedIn}}
+            {{#compare userType "pro" operator="==="}}
             <a href="/pro/dashboard">Dashboard</a>
             <a href="/pro/cart"><i class="fas fa-shopping-cart"></i></a>
+            {{/compare}}
             <a href="/logout">Log out</a>
             {{/if}}
+
             <a class="type-user" href="/">Investor</a>
         </div>
     </nav>
