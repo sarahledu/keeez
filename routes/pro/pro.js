@@ -7,6 +7,6 @@ router.get("/pro/", (req, res) => {
 });
 
 router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
-  res.render("pro/dashboard");
+  res.render("pro/dashboard", {css: ["filter", "styles"], js: ["script","filter"]});
 });
 module.exports = router;
