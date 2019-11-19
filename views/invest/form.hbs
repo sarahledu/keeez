@@ -1,6 +1,6 @@
 {{!-- Gérer le nom si l'investisseur est loggé ou non --}}
 {{> nav_bar_investor}}
-<h1 class="title">Hello {{user.name}}!</h1>
+<h1 class="title">Hello {{req.session.currentUser.name}}!</h1>
 
 
 <form id="fill-my-form" method="post" action="/my-form" class="form">
