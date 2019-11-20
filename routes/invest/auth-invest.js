@@ -52,7 +52,7 @@ router.post("/signup", (req, res) => {
     .then(dbRes => {
       if (dbRes)
         return res.render("auth/investor/signup", {
-          msg: { text: "This account already exists!", status: "wrong" }
+          msg: { text: "This account already exists!", status: "wrong" }, css: ["signup"]
         }); //
 
       const salt = bcrypt.genSaltSync(10); // cryptography librairie
