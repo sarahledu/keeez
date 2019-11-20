@@ -7,6 +7,7 @@ const investorModel = require("../../models/Investor");
 
 //Form
 router.get("/form", isLoggedIn.protectInvestor, (req, res) => {
+  console.log(req.session.currentUser);
   res.render("invest/form", { user: req.session.currentUser, css: ["form"] });
 });
 

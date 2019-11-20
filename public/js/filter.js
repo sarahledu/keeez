@@ -33,7 +33,8 @@ objectives.forEach(obj => {
     axios
       .post("http://localhost:9090/pro/search", { objectives: objective })
       .then(myAPIRes => {
-        console.log(myAPIRes.data + "Here is the client side");
+        console.log(myAPIRes.data);
+        console.log(myAPIRes.data, "Here is the client side");
 
         // const filteredBoxes = myAPIRes.data;
         // const boxLayout = document.querySelector(".d-grid.boxes");
