@@ -28,7 +28,7 @@
         type="number">
 
     <label for="objectives">What are your main objective(s)?</label>
-    <select id="objectives" name="objectives" multiple>
+    <select id="objectives" name="objectives">
         <option value="{{user.objectives}}" selected>{{user.objectives}}</option>
         <option disabled value="──────────">──────────</option>
         <option value="decrease-taxes">Decrease taxes</option>
@@ -41,8 +41,8 @@
     <select id="construction_works" name="construction_works">
         <option value="{{user.construction_works}}" selected>{{user.construction_works}}</option>
         <option disabled value="──────────">──────────</option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
     </select>
 
     <label for="areas">Where do you want to invest?</label>

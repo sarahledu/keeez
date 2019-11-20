@@ -23,10 +23,9 @@ const investorSchema = new Schema(
         "Optimize savings",
         "Prepare the future",
         "Increase incomes"
-      ],
-      default: null
+      ]
     },
-    construction_works: { type: String, default: null },
+    construction_works: { type: String },
     properties: {
       type: Schema.Types.ObjectId,
       ref: "Properties"
