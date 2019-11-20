@@ -20,7 +20,10 @@ router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
     .catch(e => console.log(e));
 });
 
-router.post("/filter-results");
+router.post("/pro/search", isLoggedIn.protectPro, (req, res)=>{
+console.log(`c'est le server ${req.body}`)
+res.send("ok")
+});
 
 router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
   res.render("pro/dashboard", {
