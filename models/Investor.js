@@ -34,8 +34,8 @@ const investorSchema = new Schema(
       type: String,
       enum: [
         "One hour from Paris",
-        "Two hours by train from Paris",
-        "Anywhere ! As long as money's raining"
+        "Two hours from Paris",
+        "Anywhere in France"
       ]
     },
     timeline: {
