@@ -1,15 +1,20 @@
 {{> nav_bar_pro}}
-
-<div class="find-new-clients pro-search-container">
-    <a href="/pro/search"><button>Find new contacts</button></a>
-</div>
-<div class="contacts-bought pro-search-container">
-    <h1>My contacts</h1>
-    <div class="filter-zone">
-        {{> pro_filters}}
+<div class="dashboard">
+    <div class="find-new-clients pro-search-container">
+        <h1>Find new contacts</h1>
+        <a href="/pro/search"><button id="btn-here">Here</button></a>
 
     </div>
-    <div class="results">
-        {{>pro_filtered_contacts}}
+    <hr>
+    <div class="contacts-bought pro-search-container">
+
+        <h1>My contacts</h1>
+        <div class="filter-zone">
+            {{> pro_filters}}
+
+        </div>
+        <div class="results">
+            {{>pro_filtered_contacts}}
+        </div>
     </div>
 </div>
