@@ -18,6 +18,7 @@ const investorSchema = new Schema(
     monthly_savings: { type: Number },
     annual_revenue_taxes: { type: Number },
     objectives: {
+      type:String,
       enum: [
         "Decrease taxes",
         "Optimize savings",
