@@ -24,6 +24,7 @@ allInput.forEach(input => {
     const checkedEmtObj = [];
     const checkedEmtTime = [];
     const checkedEmtArea = [];
+    const checkedEmtWorks =[];
     const value = rangeSelector.value;
     displayValue.textContent = `${value}€ and more`;
 
@@ -35,7 +36,9 @@ allInput.forEach(input => {
           checkedEmtTime.push(i.getAttribute("data-time"));
         } else if (i.getAttribute("data-area")) {
           checkedEmtArea.push(i.getAttribute("data-area"));
-        }
+        } else if (i.getAttribute("data-const")) {
+          checkedEmtWorks.push(i.getAttribute("data-const"));
+        } 
       }
     });
     axios
@@ -43,34 +46,43 @@ allInput.forEach(input => {
         objectives: checkedEmtObj,
         timeline: checkedEmtTime,
         areas: checkedEmtArea,
+        construction_works:checkedEmtWorks,
         revenue: value
       })
       .then(myAPIRes => {
         const listUsers = myAPIRes.data;
-        const tableContact = document.querySelector("#tbody-contacts");
-        tableContact.innerHTML = "";
+        const tableContact = document.querySelector(".table");
+        console.log(tableContact);
+        tableContact.innerHTML = `<div class="row header">
+        <div class="cell">Have been looking since</div>
+        <div class="cell">Objective(s)</div>
+        <div class="cell">Revenue</div>
+        <div class="cell">Area</div>
+        <div class="cell">Open to construction works</div>
+        <div class="cell">Cart</div>
+    </div>`;
         listUsers.forEach(user => {
           console.log(user);
-          tableContact.innerHTML += `<tr class="table-row">
-              <td class="table-division">
-                <div>${user.created_at}</div>
-              </td>
-              <td class="table-division">
-                <div>${user.objectives}</div>
-              </td>
-              <td class="table-division">
-                <div>${user.total_revenue}€</div>
-              </td>
-              <td class="table-division">
-                <div>${user.areas}</div>
-              </td>
-              <td class="table-division">
-                <div>${user.construction_works}</div>
-              </td>
-              <td class="table-division">
-                <div><a href="/${user._id}" class="fas fa-cart-arrow-down"></a></div>
-              </td>
-              </tr>`;
+          tableContact.innerHTML += `<div class="row">
+          <div class="cell" data-title="Date">
+            ${user.created_at}
+          </div>
+          <div class="cell" data-title="obj">
+            ${user.objectives}
+          </div>
+          <div class="cell" data-title="rev">
+            ${user.total_revenue}
+          </div>
+          <div class="cell" data-title="area">
+            ${user.areas}
+          </div>
+          <div class="cell" data-title="works">
+            ${user.construction_works}
+          </div>
+          <div class="cell" data-title="cart">
+            <a href="/${user._id}" class="fas fa-cart-arrow-down"></a>
+          </div>
+        </div>`;
         });
       })
       .catch(err => console.log(err));

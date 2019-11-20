@@ -25,6 +25,7 @@ router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
   var queryObj = {};
   var queryTime = {};
   var queryArea = {};
+  var queryWorks = {};
   if (req.body.objectives.length > 0) {
     queryObj = { objectives: req.body.objectives };
   }
@@ -34,9 +35,13 @@ router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
   if (req.body.areas.length > 0) {
     queryArea = { areas: req.body.areas };
   }
+  if (req.body.construction_works.length > 0) {
+    queryWorks = { construction_works: req.body.construction_works};
+  }
+
   investorModel
     .find({
-      $and: [queryObj, queryTime, queryArea, queryValue, { status: true }]
+      $and: [queryObj, queryTime, queryArea, queryWorks, queryValue, { status: true }]
     })
     .then(dbRes => res.send(dbRes))
     .catch();
