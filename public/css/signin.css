@@ -67,10 +67,6 @@ body {
     text-indent: 20px;
 }
 
-.main-footer * {
-    color: white;
-}
-
 .button-primary {
     background-color: #F48C6C;
     border-radius: 5px;

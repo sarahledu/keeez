@@ -6,7 +6,7 @@ const bcrypt = require(process.env.BCRYPT);
 const investorModel = require("../../models/Investor");
 //signin routes
 router.get("/signin", (req, res) => {
-  res.render("auth/investor/signin", {css:["signin"]});
+  res.render("auth/investor/signin", { css: ["signin"] });
 });
 
 router.post("/signin", (req, res) => {
