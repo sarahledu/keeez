@@ -17,7 +17,15 @@ const investorSchema = new Schema(
     total_revenue: { type: Number },
     monthly_savings: { type: Number },
     annual_revenue_taxes: { type: Number },
-    objectives: { type: ["Example1", "Example2"], default: null },
+    objectives: {
+      enum: [
+        "Decrease taxes",
+        "Optimize savings",
+        "Prepare the future",
+        "Increase incomes"
+      ],
+      default: null
+    },
     construction_works: { type: String, default: null },
     properties: {
       type: Schema.Types.ObjectId,

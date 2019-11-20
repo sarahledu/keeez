@@ -28,11 +28,13 @@
         type="number">
 
     <label for="objectives">What are your main objective(s)?</label>
-    <select id="objectives" name="objectives">
+    <select id="objectives" name="objectives" multiple>
         <option value="{{user.objectives}}" selected>{{user.objectives}}</option>
         <option disabled value="──────────">──────────</option>
-        <option value="Example1">Example1</option>
-        <option value="Example2">Example2</option>
+        <option value="decrease-taxes">Decrease taxes</option>
+        <option value="optimize-savings">Optimize savings</option>
+        <option value="prep-future">Prepare the future</option>
+        <option value="increase-incomes">Increase incomes</option>
     </select>
 
     <label for="construction_works">Are you willing to do some construction works?</label>
@@ -56,7 +58,7 @@
     <select id="timeline" name="timeline">
         <option value="{{user.timeline}}" selected>{{user.timeline}}</option>
         <option disabled value="──────────">──────────</option>
-        <option value="Now!!!!">Now!!!!</option>
+        <option value="Now">Now!!!!</option>
         <option value="In the next few months">In the next few months</option>
     </select>
 
