@@ -1,5 +1,6 @@
 var checkLists = document.querySelectorAll(".dropdown-check-list");
 
+
 checkLists.forEach(checkList => {
   checkList.querySelectorAll(".anchor")[0].onclick = function(evt) {
     const items = checkList.querySelector(".items");

@@ -16,6 +16,7 @@ router.post("/form", isLoggedIn.protectInvestor, isFormedFilled, (req, res) => {
   investorModel
     .findOneAndUpdate(user, newInfo, { new: true })
     .then(dbRes => {
+      console.log(dbRes);
       req.session.currentUser = dbRes;
       res.redirect("/form");
     })
