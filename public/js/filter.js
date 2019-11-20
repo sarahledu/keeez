@@ -15,58 +15,19 @@ checkLists.forEach(checkList => {
   };
 });
 
-//
-// const objectives = document.querySelectorAll("[data-obj]");
-
-// objectives.forEach(obj => {
-//   obj.onclick = function(evt) {
-//     const checkedElements = [];
-//     objectives.forEach(input => {
-//       if (input.checked === true)
-//         checkedElements.push(input.getAttribute("data-obj"));
-//     });
-//     console.log(checkedElements);
-//     axios
-//       .post("http://localhost:9090/pro/search", { objectives: checkedElements })
-//       .then(myAPIRes => {
-//         const listUsers = myAPIRes.data;
-//         const tableContact = document.querySelector("#tbody-contacts");
-//         tableContact.innerHTML = "";
-//         listUsers.forEach(user => {
-//           console.log(user);
-//           tableContact.innerHTML += `<tr class="table-row">
-//           <td class="table-division">
-//             <div>${user.created_at}</div>
-//           </td>
-//           <td class="table-division">
-//             <div>${user.objectives}</div>
-//           </td>
-//           <td class="table-division">
-//             <div>${user.total_revenue}€</div>
-//           </td>
-//           <td class="table-division">
-//             <div>${user.areas}</div>
-//           </td>
-//           <td class="table-division">
-//             <div>${user.construction_works}</div>
-//           </td>
-//           <td class="table-division">
-//             <div><a href="/${user._id}" class="fas fa-cart-arrow-down"></a></div>
-//           </td>
-//           </tr>`;
-//         });
-//       })
-//       .catch(err => console.log(err));
-//   };
-// });
-
-//Select ALL
+//CHECKBOX FILTERS
 const allInput = document.querySelectorAll(".items input");
 allInput.forEach(input => {
   input.onclick = function(evt) {
     const checkedEmtObj = [];
     const checkedEmtTime = [];
     const checkedEmtArea = [];
+    const rangeSelector = document.getElementById("range-input");
+    const displayValue = document.getElementById("display-value");
+    rangeSelector.oninput = function(evt) {
+      const value = rangeSelector.value;
+      displayValue.textContent = `${value}€`;
+    };
     allInput.forEach(i => {
       if (i.checked === true) {
         if (i.getAttribute("data-obj")) {
@@ -82,7 +43,8 @@ allInput.forEach(input => {
       .post("http://localhost:9090/pro/search", {
         objectives: checkedEmtObj,
         timeline: checkedEmtTime,
-        areas: checkedEmtArea
+        areas: checkedEmtArea,
+        revenue: value
       })
       .then(myAPIRes => {
         const listUsers = myAPIRes.data;
@@ -115,3 +77,5 @@ allInput.forEach(input => {
       .catch(err => console.log(err));
   };
 });
+
+//FILTER RANGE REVENUE
