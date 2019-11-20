@@ -9,7 +9,7 @@ router.get("/pro/", (req, res) => {
 
 router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
   investorModel
-    .find()
+    .find({ status: true })
     .then(dbRes => {
       res.render("pro/recherche", {
         investors: dbRes,
@@ -21,8 +21,23 @@ router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
 });
 
 router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
+  var queryValue = { total_revenue: { $gt: req.body.revenue } };
+  var queryObj = {};
+  var queryTime = {};
+  var queryArea = {};
+  if (req.body.objectives.length > 0) {
+    queryObj = { objectives: req.body.objectives };
+  }
+  if (req.body.timeline.length > 0) {
+    queryTime = { timeline: req.body.timeline };
+  }
+  if (req.body.areas.length > 0) {
+    queryArea = { areas: req.body.areas };
+  }
   investorModel
-    .find({ objectives: req.body.objectives })
+    .find({
+      $and: [queryObj, queryTime, queryArea, queryValue, { status: true }]
+    })
     .then(dbRes => res.send(dbRes))
     .catch();
 });

@@ -20,15 +20,12 @@
 <div id="list3" class="dropdown-check-list" tabindex="100">
     <div class="anchor">Select timeframe</div>
     <ul class="items" class="items">
-        <li><input type="checkbox" />Now </li>
-        <li><input type="checkbox" />In the next few months</li>
+        <li><input data-time="Now" type="checkbox" />Now </li>
+        <li><input data-time="In the next few months" type="checkbox" />In the next few months</li>
     </ul>
 </div>
-<div id="list4" class="dropdown-check-list" tabindex="100">
-    <div class="anchor">Select income range</div>
-    <ul class="items" class="items">
-        <li><input type="checkbox" />less than 2000 </li>
-        <li><input type="checkbox" />between 2000 and 3500</li>
-        <li><input type="checkbox" />more than 3500</li>
-    </ul>
+
+<div id="range-section" class="items">
+    <p id="display-value">0€ and more</p>
+    <input id="range-input" step="500" type="range" name="points" min="0" max="20000" value="0">
 </div>
