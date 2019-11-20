@@ -29,6 +29,7 @@ router.post("/form", isLoggedIn.protectInvestor, (req, res) => {
         newInfo.areas !== "Chose" &&
         newInfo.timeline !== "Chose"
       ) {
+        console.log("------ I just landed in the if");
         investorModel
           .findByIdAndUpdate(
             user._id,
@@ -36,6 +37,7 @@ router.post("/form", isLoggedIn.protectInvestor, (req, res) => {
             { new: true }
           )
           .then(dbRes => {
+            req.session.currentUser = dbRes;
             res.redirect("/dashboard");
           })
           .catch(err => console.log(err));

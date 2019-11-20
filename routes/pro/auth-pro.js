@@ -44,7 +44,7 @@ router.post("/pro/signin", (req, res) => {
 
 //signup routes
 router.get("/pro/signup", (req, res) => {
-  res.render("auth/pro/signup");
+  res.render("auth/pro/signup", { css: ["signup"] });
 });
 router.post("/pro/signup", (req, res) => {
   const user = req.body;

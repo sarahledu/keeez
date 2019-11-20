@@ -6,21 +6,22 @@
         <p class="form-subtitle">Enjoy yourself and be comfortable</p>
     </header>
     <div><img id="img-sign" src="/img/sign.png" alt="cloud-connection"></div>
-    
+
     <section class="sign-block">
         {{#if msg}}
         <p class="message {{msg.status}}">{{msg.text}}</p>
         {{/if}}
-        
+
         <form method="post" action="/signin" id="form_user">
             <div class="form-item-wrapper">
                 {{!-- <label for="email" class="label-ref label">Email</label> --}}
-                <input id="email" type="email" class="input-text input" name="email" placeholder="Email" required>
+                <input id="email" type="email" class="input-text input" name="email" placeholder="Email"
+                    value="hello@keeyz.fr" required>
             </div>
             <div class="form-item-wrapper flexed-item">
                 {{!-- <label for="password" class="label-ref label">Password</label> --}}
                 <input id="password" type="password" class="input-text input" placeholder="••••••" required
-                    name="password">
+                    name="password" value="1234">
             </div>
             <button class="button-primary">Log in !</button>
             <p class="form-sub-infos">Not registered? <a href="/signup" class="button-link-form">Create an account</a>
