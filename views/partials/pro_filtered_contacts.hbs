@@ -8,17 +8,19 @@
             <div class="cell">Open to construction works</div>
             <div class="cell">Cart</div>
         </div>
+        
+            {{#each investors}}
 
-        {{#each investors}}
+            {{> pro_filtered_contact_row}}
 
-        {{> pro_filtered_contact_row}}
+            {{/each}}
+            {{#unless investors}}
+            <div>
+                sorry no contacts yet
+            </div>
+            {{/unless}}
+        
 
-        {{/each}}
-        {{#unless investors}}
-        <div>
-            sorry no contacts yet
-        </div>
-        {{/unless}}
 
     </div>
 </div>
