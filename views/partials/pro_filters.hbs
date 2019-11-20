@@ -1,10 +1,12 @@
 <div id="list1" class="dropdown-check-list" tabindex="100">
     <div class="anchor">Select objectives</div>
     <ul class="items" class="items">
-        <li><input type="checkbox" />Decrease taxes</li>
-        <li><input type="checkbox" />Optimize savings</li>
-        <li><input type="checkbox" />Prepare the future</li>
-        <li><input type="checkbox" />Increase incomes</li>
+        {{!-- {{#each investors.objectives}} --}}
+        <li><input data-obj="Decrease taxes" type="checkbox" />Decrease taxes</li>
+        <li><input data-obj="Optimize savings"type="checkbox" />Optimize savings</li>
+        <li><input data-obj="Prepare the future" type="checkbox" />Prepare the future</li>
+        <li><input data-obj="Increase incomes" type="checkbox" />Increase incomes</li>
+        {{/each}}
     </ul>
 </div>
 <div id="list2" class="dropdown-check-list" tabindex="100">
