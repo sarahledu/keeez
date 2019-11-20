@@ -20,9 +20,11 @@ router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
     .catch(e => console.log(e));
 });
 
-router.post("/pro/search", isLoggedIn.protectPro, (req, res)=>{
-console.log(`c'est le server ${req.body}`)
-res.send("ok")
+router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
+  investorModel
+    .find({ objectives: req.body.objectives })
+    .then(dbRes => res.send(dbRes))
+    .catch();
 });
 
 router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {

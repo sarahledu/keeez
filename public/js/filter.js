@@ -27,22 +27,22 @@ checkLists.forEach(checkList => {
 //
 const objectives = document.querySelectorAll("[data-obj]");
 
-
 objectives.forEach(obj => {
   obj.onclick = function(evt) {
-    const data =obj.getAttribute("data-obj")
-    axios.post("http://localhost:9090/pro/search", {objectives: data})
-    .then(myAPIRes => {
-      console.log(myAPIRes)
+    const objective = obj.getAttribute("data-obj");
+    axios
+      .post("http://localhost:9090/pro/search", { objectives: objective })
+      .then(myAPIRes => {
+        console.log(myAPIRes.data + "Here is the client side");
 
         // const filteredBoxes = myAPIRes.data;
-   
         // const boxLayout = document.querySelector(".d-grid.boxes");
         // boxLayout.innerHTML = "";
         // filteredBoxes.forEach(box => {
         //     console.log(box)
         //     boxLayout.innerHTML += `<div class="box" style="background-color:${box.color}">${box.color}</div>`
         // });
-        }).catch(err => console.log(err))
+      })
+      .catch(err => console.log(err));
   };
 });
