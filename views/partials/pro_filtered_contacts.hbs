@@ -11,11 +11,11 @@
             </tr>
         </thead>
 
-        <tbody>
+        <tbody id="tbody-contacts">
             {{#each investors}}
-            <tr class="table-row">
-                {{> pro_filtered_contact_row}}
-            </tr>
+
+            {{> pro_filtered_contact_row}}
+
             {{/each}}
             {{#unless investors}}
             <tr>
