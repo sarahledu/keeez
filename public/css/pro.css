@@ -1,4 +1,4 @@
-.pro-search-container{
+.pro-search-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,12 +6,12 @@
 
 }
 
-.headline{
+.headline {
     font-size: 3rem;
     padding: 20px;
 }
 
-.filter-zone{
+.filter-zone {
     display: flex;
     flex-direction: row;
     height: 100px;
@@ -48,9 +48,9 @@
 
 .table-row {
     display: flex;
-  }
-  
-  hr {
+}
+
+hr {
     border: none;
     border-top: 3px solid #4F5D75;
     color: #4F5D75;
@@ -60,19 +60,19 @@
     width: 70%
 }
 
-.dashboard{
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-min-height: 71vh
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 71vh
 }
 
-.pro-search-container>h1{
+.pro-search-container>h1 {
     margin: 15px;
 }
 
-#btn-here{
+#btn-here {
     padding: 5px 10px;
     margin-bottom: 20px;
     background-color: #F48C6C;
@@ -85,18 +85,63 @@ min-height: 71vh
     color: white
 }
 
-body{
-  font-family: 'Helvetica Neue', Helvetica, Arial;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  color: #3b3b3b;
-  -webkit-font-smoothing: antialiased;
-  
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #3b3b3b;
+    -webkit-font-smoothing: antialiased;
+    @media screen and (max-width: 580px) {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    
 }
-  /* @media {
-    screen and (max-width: 580px);
-    font-size: 16px;
-    line-height: 22px;
-  } */
-   
+
+
+.wrapper {
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 800px;
+}
+
+.table {
+    margin: 0 0 40px 0;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: table;
+
+    @media screen and (max-width: 580px) {
+
+        display: block;
+    }
+}
+
+.row {
+    display: table-row;
+    background: #f6f6f6;
+
+
+
+}
+
+.row:nth-of-type(odd) {
+    background: #e9e9e9;
+}
+
+.row.header {
+    font-weight: 900;
+    color: #ffffff;
+    background: #f48c6c;
+    border: 1px solid #f48c6c;
+}
+
+.cell {
+    padding: 6px 12px;
+    display: table-cell;
+
+    @media screen and (max-width: 580px) {
+        padding: 2px 16px display: block
+    }
+}

@@ -1,4 +1,29 @@
-<div class="results-wrapper">
+<div class="wrapper">
+    <div class="table">
+        <div class="row header">
+            <div class="cell">Have been looking since</div>
+            <div class="cell">Objective(s)</div>
+            <div class="cell">Revenue</div>
+            <div class="cell">Area</div>
+            <div class="cell">Open to construction works</div>
+            <div class="cell">Cart</div>
+        </div>
+
+        {{#each investors}}
+
+        {{> pro_filtered_contact_row}}
+
+        {{/each}}
+        {{#unless investors}}
+        <div>
+            sorry no contacts yet
+        </div>
+        {{/unless}}
+
+    </div>
+</div>
+
+{{!-- <div class="results-wrapper">
     <table class="pro-results-table">
         <thead>
             <tr class="table-row">
@@ -24,4 +49,4 @@
             {{/unless}}
         </tbody>
     </table>
-</div>
+</div> --}}

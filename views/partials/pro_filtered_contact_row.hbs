@@ -1,4 +1,25 @@
-<tr class="table-row">
+<div class="row">
+  <div class="cell" data-title="Date">
+    {{this.created_at}}
+  </div>
+  <div class="cell" data-title="obj">
+    {{this.objectives}}
+  </div>
+  <div class="cell" data-title="rev">
+    {{this.total_revenue}}
+  </div>
+  <div class="cell" data-title="area">
+    {{this.areas}}
+  </div>
+  <div class="cell" data-title="works">
+    {{this.construction_works}}
+  </div>
+  <div class="cell" data-title="cart">
+    <a href="/{{this._id}}" class="fas fa-cart-arrow-down"></a>
+  </div>
+</div>
+
+{{!-- <tr class="table-row">
   <td class="table-division">
     <div>{{this.created_at}}</div>
   </td>
@@ -17,4 +38,4 @@
   <td class="table-division">
     <div><a href="/{{this._id}}" class="fas fa-cart-arrow-down"></a></div>
   </td>
-</tr>
+</tr> --}}
