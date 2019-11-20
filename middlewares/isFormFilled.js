@@ -1,12 +1,12 @@
-function isFormedFilled(req, res, next) {
+function isFormFilled(req, res, next) {
   //Check status & return form if status false
   if (
     req.session.currentUser.status &&
     req.session.currentUser.type === "investor"
   ) {
-    res.redirect("/dashboard");
+    res.redirect("/form");
     return;
   }
   next();
 }
-module.exports = isFormedFilled;
+module.exports = isFormFilled;
