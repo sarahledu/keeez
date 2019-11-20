@@ -12,31 +12,35 @@ const investorSchema = new Schema(
     marital_status: {
       type: String,
       enum: [
-        "Chose one",
+        "Chose",
         "Domestic partnership",
         "Divorced",
         "Married",
         "Single",
         "Widowed"
       ],
-      default: "Chose one"
+      default: "Chose"
     },
-    nbr_child: { type: Number },
-    total_revenue: { type: Number },
-    monthly_savings: { type: Number },
-    annual_revenue_taxes: { type: Number },
+    nbr_child: { type: Number, default: 0 },
+    total_revenue: { type: Number, default: 0 },
+    monthly_savings: { type: Number, default: 0 },
+    annual_revenue_taxes: { type: Number, default: 0 },
     objectives: {
       type: String,
       enum: [
-        "Chose one",
+        "Chose",
         "Decrease taxes",
         "Optimize savings",
         "Prepare the future",
         "Increase incomes"
       ],
-      default: "Chose one"
+      default: "Chose"
     },
-    construction_works: { type: String },
+    construction_works: {
+      type: String,
+      enum: ["Chose", "Yes", "No"],
+      default: "Chose"
+    },
     properties: {
       type: Schema.Types.ObjectId,
       ref: "Properties"
@@ -44,17 +48,17 @@ const investorSchema = new Schema(
     areas: {
       type: String,
       enum: [
-        "Chose one",
+        "Chose",
         "One hour from Paris",
         "Two hours from Paris",
         "Anywhere in France"
       ],
-      default: "Chose one"
+      default: "Chose"
     },
     timeline: {
       type: String,
-      enum: ["Chose one", "Now!!!!", "In the next few months"],
-      default: "Chose one"
+      enum: ["Chose", "Now!!!!", "In the next few months"],
+      default: "Chose"
     },
     status: { type: Boolean, default: false },
     // completed_at: {type: Date},
