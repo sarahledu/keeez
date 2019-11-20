@@ -24,7 +24,7 @@ allInput.forEach(input => {
     const checkedEmtObj = [];
     const checkedEmtTime = [];
     const checkedEmtArea = [];
-    const checkedEmtWorks =[];
+    const checkedEmtWorks = [];
     const value = rangeSelector.value;
     displayValue.textContent = `${value}€ and more`;
 
@@ -38,7 +38,7 @@ allInput.forEach(input => {
           checkedEmtArea.push(i.getAttribute("data-area"));
         } else if (i.getAttribute("data-const")) {
           checkedEmtWorks.push(i.getAttribute("data-const"));
-        } 
+        }
       }
     });
     axios
@@ -46,7 +46,7 @@ allInput.forEach(input => {
         objectives: checkedEmtObj,
         timeline: checkedEmtTime,
         areas: checkedEmtArea,
-        construction_works:checkedEmtWorks,
+        construction_works: checkedEmtWorks,
         revenue: value
       })
       .then(myAPIRes => {
@@ -65,7 +65,7 @@ allInput.forEach(input => {
           console.log(user);
           tableContact.innerHTML += `<div class="row">
           <div class="cell" data-title="Date">
-            ${user.created_at}
+            ${user.timeline}
           </div>
           <div class="cell" data-title="obj">
             ${user.objectives}
@@ -79,7 +79,7 @@ allInput.forEach(input => {
           <div class="cell" data-title="works">
             ${user.construction_works}
           </div>
-          <div class="cell" data-title="cart">
+          <div class="cell icon" data-title="cart">
             <a href="/${user._id}" class="fas fa-cart-arrow-down"></a>
           </div>
         </div>`;

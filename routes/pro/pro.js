@@ -4,7 +4,7 @@ const isLoggedIn = require("./../../middlewares/isLoggedIn");
 const investorModel = require("../../models/Investor");
 
 router.get("/pro/", (req, res) => {
-  res.render("pro/index-pro", { css: ["pro"] });
+  res.render("pro/index-pro", { css: ["pro","landing-pro"] });
 });
 
 router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
