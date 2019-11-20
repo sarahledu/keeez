@@ -24,6 +24,7 @@ allInput.forEach(input => {
     const checkedEmtObj = [];
     const checkedEmtTime = [];
     const checkedEmtArea = [];
+    const checkedEmtWorks =[];
     const value = rangeSelector.value;
     displayValue.textContent = `${value}€ and more`;
 
@@ -35,7 +36,9 @@ allInput.forEach(input => {
           checkedEmtTime.push(i.getAttribute("data-time"));
         } else if (i.getAttribute("data-area")) {
           checkedEmtArea.push(i.getAttribute("data-area"));
-        }
+        } else if (i.getAttribute("data-const")) {
+          checkedEmtWorks.push(i.getAttribute("data-const"));
+        } 
       }
     });
     axios
@@ -43,6 +46,7 @@ allInput.forEach(input => {
         objectives: checkedEmtObj,
         timeline: checkedEmtTime,
         areas: checkedEmtArea,
+        construction_works:checkedEmtWorks,
         revenue: value
       })
       .then(myAPIRes => {
