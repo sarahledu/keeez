@@ -19,6 +19,9 @@ router.post("/form", isLoggedIn.protectInvestor, isFormedFilled, (req, res) => {
     .then(dbRes => {
       console.log(dbRes);
       req.session.currentUser = dbRes;
+      // if(){
+      //   user.status = true
+      // }
       res.redirect("/form");
     })
     .catch(err => console.log(err));

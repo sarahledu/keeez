@@ -11,20 +11,30 @@ const investorSchema = new Schema(
     phone_number: { type: Number },
     marital_status: {
       type: String,
-      enum: ["Domestic partnership", "Divorced", "Married", "Single", "Widowed"]
+      enum: [
+        "Chose one",
+        "Domestic partnership",
+        "Divorced",
+        "Married",
+        "Single",
+        "Widowed"
+      ],
+      default: "Chose one"
     },
     nbr_child: { type: Number },
     total_revenue: { type: Number },
     monthly_savings: { type: Number },
     annual_revenue_taxes: { type: Number },
     objectives: {
-      type:String,
+      type: String,
       enum: [
+        "Chose one",
         "Decrease taxes",
         "Optimize savings",
         "Prepare the future",
         "Increase incomes"
-      ]
+      ],
+      default: "Chose one"
     },
     construction_works: { type: String },
     properties: {
@@ -34,14 +44,17 @@ const investorSchema = new Schema(
     areas: {
       type: String,
       enum: [
+        "Chose one",
         "One hour from Paris",
         "Two hours from Paris",
         "Anywhere in France"
-      ]
+      ],
+      default: "Chose one"
     },
     timeline: {
       type: String,
-      enum: ["Now!!!!", "In the next few months"]
+      enum: ["Chose one", "Now!!!!", "In the next few months"],
+      default: "Chose one"
     },
     status: { type: Boolean, default: false },
     // completed_at: {type: Date},

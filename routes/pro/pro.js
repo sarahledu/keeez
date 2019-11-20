@@ -9,7 +9,7 @@ router.get("/pro/", (req, res) => {
 
 router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
   investorModel
-    .find()
+    .find({ status: true })
     .then(dbRes => {
       res.render("pro/recherche", {
         investors: dbRes,
@@ -21,7 +21,7 @@ router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
 });
 
 router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
-  console.log("HEYYYYYYY", req.body.objectives);
+  var queryValue = { total_revenue: { $gt: req.body.revenue } };
   var queryObj = {};
   var queryTime = {};
   var queryArea = {};
@@ -36,7 +36,7 @@ router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
   }
   investorModel
     .find({
-      $and: [queryObj, queryTime, queryArea]
+      $and: [queryObj, queryTime, queryArea, queryValue, { status: true }]
     })
     .then(dbRes => res.send(dbRes))
     .catch();

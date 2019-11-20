@@ -17,17 +17,16 @@ checkLists.forEach(checkList => {
 
 //CHECKBOX FILTERS
 const allInput = document.querySelectorAll(".items input");
+const rangeSelector = document.getElementById("range-input");
+const displayValue = document.getElementById("display-value");
 allInput.forEach(input => {
-  input.onclick = function(evt) {
+  input.oninput = function(evt) {
     const checkedEmtObj = [];
     const checkedEmtTime = [];
     const checkedEmtArea = [];
-    const rangeSelector = document.getElementById("range-input");
-    const displayValue = document.getElementById("display-value");
-    rangeSelector.oninput = function(evt) {
-      const value = rangeSelector.value;
-      displayValue.textContent = `${value}€`;
-    };
+    const value = rangeSelector.value;
+    displayValue.textContent = `${value}€ and more`;
+
     allInput.forEach(i => {
       if (i.checked === true) {
         if (i.getAttribute("data-obj")) {
