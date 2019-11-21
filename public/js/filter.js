@@ -56,7 +56,7 @@ allInput.forEach(input => {
       }
     });
     axios
-      .post("http://localhost:9090/pro/search", {
+      .post("/pro/search", {
         objectives: checkedEmtObj,
         timeline: checkedEmtTime,
         areas: checkedEmtArea,
@@ -119,7 +119,7 @@ function initListener() {
       // Add a small cart 'Are you sure you want to add this contact in your cart?""
       //send data to the server to add the element in our currentSessionUser
       axios
-        .post(`http://localhost:9090/pro/search/add/${idNumber}`, {
+        .post(`/pro/search/add/${idNumber}`, {
           form_bought: idNumber
         })
         .then(dbAPIRes => {
