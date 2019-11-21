@@ -14,7 +14,7 @@ router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
       res.render("pro/recherche", {
         investors: dbRes,
         css: ["filter", "styles", "pro"],
-        js: ["script", "filter"]
+        js: ["script", "filter", "cart"]
       });
     })
     .catch(e => console.log(e));
@@ -36,12 +36,19 @@ router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
     queryArea = { areas: req.body.areas };
   }
   if (req.body.construction_works.length > 0) {
-    queryWorks = { construction_works: req.body.construction_works};
+    queryWorks = { construction_works: req.body.construction_works };
   }
 
   investorModel
     .find({
-      $and: [queryObj, queryTime, queryArea, queryWorks, queryValue, { status: true }]
+      $and: [
+        queryObj,
+        queryTime,
+        queryArea,
+        queryWorks,
+        queryValue,
+        { status: true }
+      ]
     })
     .then(dbRes => res.send(dbRes))
     .catch();
