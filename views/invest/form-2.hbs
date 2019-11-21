@@ -1,0 +1,34 @@
+{{> nav_bar_investor}}
+<div>
+    <h2>Your situation</h2>
+    <form id="fill-my-form-situation" method="post" action="/form-2" class="form">
+
+    <label for="marital_status">Marital status</label>
+    <select id="marital_status" name="marital_status">
+        <option value="{{user.marital_status}}" selected>{{user.marital_status}}</option>
+        <option disabled value="──────────">──────────</option>
+        <option value="Domestic partnership">Domestic partnership</option>
+        <option value="Divorced">Divorced</option>
+        <option value="Married">Married</option>
+        <option value="Single">Single</option>
+        <option value="Widowed">Widowed</option>
+    </select>
+
+    <label for="nbr_child">How many children do you have?</label>
+    <input value="{{user.nbr_child}}" class="input" id="nbr_child" name="nbr_child" type="number">
+
+    <label for="total_revenue">What's your monthly revenue?</label>
+    <input value="{{user.total_revenue}}" class="input" id="total_revenue" name="total_revenue" type="number">
+
+    <label for="monthly_savings">What's your monthly saving capacity?</label>
+    <input value="{{user.monthly_savings}}" class="input" id="monthly_savings" name="monthly_savings" type="number">
+
+    <label for="annual_revenue_taxes">What's your annual revenue taxes?</label>
+    <input value="{{user.annual_revenue_taxes}}" class="input" id="annual_revenue_taxes" name="annual_revenue_taxes"
+        type="number">
+
+    
+    {{!-- Adding property here  --}}
+    <button class="btn">Submit my form</button>
+</form>
+</div>

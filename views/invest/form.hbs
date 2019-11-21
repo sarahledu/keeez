@@ -1,71 +1,25 @@
 {{!-- Gérer le nom si l'investisseur est loggé ou non --}}
 {{> nav_bar_investor}}
 <h1 class="title">Hello {{user.firstname}}!</h1>
-<form id="fill-my-form" method="post" action="/form" class="form">
 
-    <label for="marital_status">Marital status</label>
-    <select id="marital_status" name="marital_status">
-        <option value="{{user.marital_status}}" selected>{{user.marital_status}}</option>
-        <option disabled value="──────────">──────────</option>
-        <option value="Domestic partnership">Domestic partnership</option>
-        <option value="Divorced">Divorced</option>
-        <option value="Married">Married</option>
-        <option value="Single">Single</option>
-        <option value="Widowed">Widowed</option>
-    </select>
+<div>
+    <p> Before we can help you, we have some questions for you.
+        These informations are necessary so we can find the best partner to make your project get real.
+    </p>
+    <div class="list">Make sure you have:
+        <div class="needed">
+            <i class="fas fa-hourglass-start"></i>
+            <li>10 minutes</li>
+        </div>
+        <div class="needed">
+            <i></i>
+            <li>Your pay sheet</li>
+        </div>
+        <div class="needed">
+            <i></i>
+            <li>Your income tax return</li>
+        </div>
+    </div>
 
-    <label for="nbr_child">How many children do you have?</label>
-    <input value="{{user.nbr_child}}" class="input" id="nbr_child" name="nbr_child" type="number">
-
-    <label for="total_revenue">What's your monthly revenue?</label>
-    <input value="{{user.total_revenue}}" class="input" id="total_revenue" name="total_revenue" type="number">
-
-    <label for="monthly_savings">What's your monthly saving capacity?</label>
-    <input value="{{user.monthly_savings}}" class="input" id="monthly_savings" name="monthly_savings" type="number">
-
-    <label for="annual_revenue_taxes">What's your annual revenue taxes?</label>
-    <input value="{{user.annual_revenue_taxes}}" class="input" id="annual_revenue_taxes" name="annual_revenue_taxes"
-        type="number">
-
-    <label for="objectives">What are your main objective(s)?</label>
-    <select id="objectives" name="objectives">
-
-        <option value="{{user.objectives}}" selected>{{user.objectives}}</option>
-        <option disabled value="──────────">──────────</option>
-        <option value="Decrease taxes">Decrease taxes</option>
-        <option value="Optimize savings">Optimize savings</option>
-        <option value="Prepare
-         the future">Prepare the future</option>
-        <option value="Increase incomes">Increase incomes</option>
-    </select>
-
-    <label for="construction_works">Are you willing to do some construction works?</label>
-    <select id="construction_works" name="construction_works">
-        <option value="{{user.construction_works}}" selected>{{user.construction_works}}</option>
-        <option disabled value="──────────">──────────</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-    </select>
-
-    <label for="areas">Where in France do you want to invest?</label>
-    <select id="areas" name="areas">
-        <option value="{{user.areas}}" selected>{{user.areas}}</option>
-        <option disabled value="──────────">──────────</option>
-        <option value="East">East</option>
-        <option value="North">North</option>
-        <option value="South">South</option>
-        <option value="South-West">South-West</option>
-        <option value="West">West</option>
-    </select>
-
-    <label for="timeline">When will you be ready to invest?</label>
-    <select id="timeline" name="timeline">
-        <option value="{{user.timeline}}" selected>{{user.timeline}}</option>
-        <option disabled value="──────────">──────────</option>
-        <option value="Now">Now!!!!</option>
-        <option value="In the next few months">In the next few months</option>
-    </select>
-
-    {{!-- Adding property here  --}}
-    <button class="btn">Submit my form</button>
-</form>
+</div>
+<a href="/form-1"><button>Get started</button></a>
