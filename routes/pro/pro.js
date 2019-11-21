@@ -61,15 +61,17 @@ router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
   });
 });
 
+router.get("/pro/get-cart", (req, res) => {
+  if (req.session.currentCart) res.send({ cart: req.session.currentCart });
+  else res.send({ cart: [] });
+});
+
 router.post("/pro/search/add/:id", isLoggedIn.protectPro, (req, res) => {
   const cart = req.session.currentCart;
   // var cartNumber = cart.length;
-  console.log(cart.length);
-  console.log(cart);
   if (!cart.includes(`${req.params.id}`)) {
     cart.push(req.params.id);
-    console.log("Hello here is the new one :  ", cart.length);
   }
-  res.send({ cartNumber: cart.length });
+  res.send({ cart: cart });
 });
 module.exports = router;
