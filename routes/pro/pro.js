@@ -2,22 +2,33 @@ const express = require("express");
 const router = new express.Router();
 const isLoggedIn = require("./../../middlewares/isLoggedIn");
 const investorModel = require("../../models/Investor");
+const proModel = require("../../models/Pro");
 
 router.get("/pro/", (req, res) => {
   res.render("pro/index-pro", { css: ["pro", "landing-pro"] });
 });
 
 router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
-  investorModel
-    .find({ status: true })
-    .then(dbRes => {
-      res.render("pro/recherche", {
-        investors: dbRes,
-        css: ["filter", "styles", "pro"],
-        js: ["script", "filter", "cart"]
-      });
+  // console.log(req.session.currentUser.form_bought);
+  proModel
+    .findById(req.session.currentUser._id)
+    .then(currentUser => {
+      console.log(currentUser.form_bought);
+      investorModel
+        .find({
+          $and: [{ status: true }, { _id: { $nin: currentUser.form_bought } }]
+        })
+        .then(dbRes => {
+          // console.log(dbRes)
+          res.render("pro/recherche", {
+            investors: dbRes,
+            css: ["filter", "styles", "pro"],
+            js: ["script", "filter", "cart"]
+          });
+        })
+        .catch(e => console.log(e));
     })
-    .catch(e => console.log(e));
+    .catch(err => console.log(err));
 });
 
 router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
@@ -50,15 +61,23 @@ router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
         { status: true }
       ]
     })
-    .then(dbRes => res.send(dbRes))
+    .then(dbRes => {
+      res.send(dbRes);
+    })
     .catch();
 });
 
 router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
-  res.render("pro/dashboard", {
-    css: ["filter", "styles", "pro"],
-    js: ["script", "filter"]
-  });
+  investorModel
+    .find()
+    .then(dbRes => {
+      res.render("pro/dashboard", {
+        investors: dbRes,
+        css: ["filter", "styles", "pro"],
+        js: ["script", "filter"]
+      });
+    })
+    .catch(err => console.log(err));
 });
 
 router.get("/pro/get-cart", (req, res) => {

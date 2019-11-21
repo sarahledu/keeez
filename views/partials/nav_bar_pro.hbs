@@ -12,7 +12,7 @@
             {{#if isLoggedIn}}
             {{#compare userType "pro" operator="==="}}
             <a href="/pro/dashboard">Dashboard</a>
-            <a href="/pro/cart" id="cart">Mon panier({{currentCart.length}})</a>
+            <a href="/pro/cart" id="cart">Mon panier({{currentCart.elements.length}})</a>
             {{/compare}}
             <a href="/logout">Log out</a>
             {{/if}}
