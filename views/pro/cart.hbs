@@ -1,36 +1,22 @@
 {{> nav_bar_pro}}
-<h2>This is where we gonna implement Stripe as strong warriors!</h2>
+<h2>My cart</h2>
 <div class="shopping-cart">
-    <!-- Title -->
     <div class="title">
         You're one step from very qualified contacts!
     </div>
 
-    <!-- Product #1 -->
     <div class="item">
-        <div class="buttons">
-            <span class="delete-btn"></span>
-            <span class="like-btn"></span>
-        </div>  
-
-        <div class="image">
-            <img src="img/phone.png" alt="" />
-        </div>
-
         <div class="description">
-            <p>Contact list</p>
+            <p>Contact</p>
         </div>
 
         <div class="quantity">
-            <button class="plus-btn" type="button" name="button">
-                <img src="plus.svg" alt="" />
-            </button>
-            <input type="text" name="name" value="1">
-            <button class="minus-btn" type="button" name="button">
-                <img src="minus.svg" alt="" />
-            </button>
+            <p>x {{currentCart.elements.length}}</p>
         </div>
 
-        <div class="total-price">$549</div>
+        <div class="total-price">{{currentCart.price}}€</div>
+    </div>
+    <div class="button-section">
+        <a href="/pro/checkout/{{currentUser._id}}"><button class="btn">Buy</button></a>
     </div>
 </div>

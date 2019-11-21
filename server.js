@@ -67,9 +67,11 @@ server.use(function checkLoggedIn(req, res, next) {
   res.locals.isLoggedIn = Boolean(copy);
   // Use this line to check the user status in HBS
   if (req.session.currentCart) {
-    res.locals.currentCart = req.session.currentCart;
+    res.locals.currentCart = {
+      elements: req.session.currentCart,
+      price: req.session.currentCart.length * 10
+    };
   }
-  
   res.locals.ifFormedFilled = copy.status;
   res.locals.userType = copy.type;
   next();

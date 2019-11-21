@@ -1,7 +1,7 @@
 var checkLists = document.querySelectorAll(".dropdown-check-list");
 var cart = [];
-// console.log(currentCart);
 
+//Get Cart
 axios
   .get(`/pro/get-cart`)
   .then(res => {
