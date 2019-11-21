@@ -95,7 +95,11 @@ router.get(
   isLoggedIn.protectInvestor,
   isFormFilled,
   (req, res) => {
-    res.render("invest/dashboard");
+    res.render("invest/dashboard",{
+      user: req.session.currentUser,
+      css: ["dashboard","form"]
+    })
+   
   }
 );
 router.post("/dashboard", isLoggedIn.protectInvestor, (req, res) => {

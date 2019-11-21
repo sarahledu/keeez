@@ -1,11 +1,22 @@
 {{> nav_bar_investor}}
-<div>
-    <div>
-        <p>Congratulations !</p>
+<div class="dash">
+    <div id="congrats">
+        <p>
+            <h2>Congratulations {{user.firstname}}!</h2>
+        </p>
         <p>Your profile is complete.</p>
+        <p>You can edit it <a href="/form-1" class="">here</a> anytime</p>
     </div>
-    <div>
-        <a href="">My partners</a>
-        <a href="">My projects</a>
+    <div class="to-come">
+        <div id="partners"><a href=""><button class="btn">My partners</button>
+            </a>
+            <p>We're currently developping this feature !</p>
+        </div>
+        <div id="projects"> <a href=""><button class="btn">
+                    My projects
+                </button> </a>
+            <p>We're currently developping this feature !</p>
+        </div>
+
     </div>
 </div>
