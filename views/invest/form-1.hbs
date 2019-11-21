@@ -1,0 +1,79 @@
+{{> nav_bar_investor}}
+<div>
+    <h2>Your project</h2>
+    <form id="fill-my-form-project" method="post" action="/form-1" class="form">
+
+        <label for="objectives">What are your main objective(s)?</label>
+        <select id="objectives" name="objectives">
+
+            <option value="{{user.objectives}}" selected>{{user.objectives}}</option>
+            <option disabled value="──────────">──────────</option>
+            <option value="Decrease taxes">Decrease taxes</option>
+            <option value="Optimize savings">Optimize savings</option>
+            <option value="Prepare
+         the future">Prepare the future</option>
+            <option value="Increase incomes">Increase incomes</option>
+        </select>
+
+        <p>Do you already have a precise idea of your project</p>
+
+        <div>
+            <input type="radio" id="yesCheck" name="idea" value="yes">
+            <label for="yes">Yes</label>
+        </div>
+
+        <div>
+            <input type="radio" id="noCheck" name="idea" value="no" checked>
+            <label for="no">No</label>
+        </div>
+
+        <div class="ifYes" style="display:none">
+            <label for="project_type">If yes, what kind of property are you looking for ?</label>
+            <select id="project_type" name="project_type">
+
+                <option value="{{user.project_type}}" selected>{{user.project_type}}</option>
+                <option disabled value="──────────">──────────</option>
+                <option value="Flat">Flat</option>
+                <option value="House">House</option>
+                <option value="Building">Building</option>
+                <option value="Any">Any</option>
+            </select>
+        </div>
+        <div class="ifYes" style="display:none">
+            <label for="budget">Which budget do you have in mind ?</label>
+            <input value="{{user.budget}}" class="input" id="budget" name="budget" type="number">
+        </div>
+
+
+
+        <label for="construction_works">Are you willing to do some construction works?</label>
+        <select id="construction_works" name="construction_works">
+            <option value="{{user.construction_works}}" selected>{{user.construction_works}}</option>
+            <option disabled value="──────────">──────────</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="areas">Where in France do you want to invest?</label>
+        <select id="areas" name="areas">
+            <option value="{{user.areas}}" selected>{{user.areas}}</option>
+            <option disabled value="──────────">──────────</option>
+            <option value="East">East</option>
+            <option value="North">North</option>
+            <option value="South">South</option>
+            <option value="South-West">South-West</option>
+            <option value="West">West</option>
+        </select>
+
+        <label for="timeline">When will you be ready to invest?</label>
+        <select id="timeline" name="timeline">
+            <option value="{{user.timeline}}" selected>{{user.timeline}}</option>
+            <option disabled value="──────────">──────────</option>
+            <option value="Now">Now!!!!</option>
+            <option value="In the next few months">In the next few months</option>
+        </select>
+
+        {{!-- Adding property here  --}}
+        <button class="btn">Save and continue</button>
+    </form>
+</div>
