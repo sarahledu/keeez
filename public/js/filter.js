@@ -1,4 +1,18 @@
 var checkLists = document.querySelectorAll(".dropdown-check-list");
+var cart = [];
+// console.log(currentCart);
+
+axios
+  .get(`/pro/get-cart`)
+  .then(res => {
+    console.log("cart", res);
+    cart = res.data.cart;
+    document.querySelectorAll(".fa-plus-circle").forEach(cartBtn => {
+      if (cart.includes(cartBtn.getAttribute("data-id")))
+        cartBtn.classList = "fas fa-check-circle";
+    });
+  })
+  .catch(err => console.log(err));
 
 // display the filters
 checkLists.forEach(checkList => {
@@ -80,10 +94,14 @@ allInput.forEach(input => {
             ${user.construction_works}
           </div>
           <div class="cell icon" data-title="cart">
-            <a href="/${user._id}" class="fas fa-cart-arrow-down"></a>
+          <a href="/${user._id}" data-id="${user._id}" 
+          class="fas ${
+            !cart.includes(user._id) ? "fa-plus-circle" : "fa-check-circle"
+          }"></a>
           </div>
         </div>`;
         });
+        initListener();
       })
       .catch(err => console.log(err));
   };
@@ -91,24 +109,29 @@ allInput.forEach(input => {
 
 //Add to cart
 const myCartBtn = document.getElementById("cart");
-const allBuyBtn = document.querySelectorAll(".fa-cart-arrow-down");
-allBuyBtn.forEach(btn => {
-  btn.onclick = function(evt) {
-    const idNumber = evt.target.getAttribute("data-id");
-    evt.preventDefault();
-    // Add a small cart 'Are you sure you want to add this contact in your cart?""
-    //send data to the server to add the element in our currentSessionUser
-    axios
-      .post(`http://localhost:9090/pro/search/add/${idNumber}`, {
-        form_bought: idNumber
-      })
-      .then(dbAPIRes => {
-        const cartNbr = dbAPIRes.data.cartNumber;
-        myCartBtn.textContent = `Mon panier (${cartNbr})`;
-      }) // Check if our element has already been put her
-      .catch(err => {
-        console.log(err);
-      });
-    // Need to be sure when you change pages in the pro section you still have the right number in the cart
-  };
-});
+initListener();
+function initListener() {
+  const allBuyBtn = document.querySelectorAll(".fa-plus-circle");
+  allBuyBtn.forEach(btn => {
+    btn.onclick = function(evt) {
+      const idNumber = evt.target.getAttribute("data-id");
+      evt.preventDefault();
+      // Add a small cart 'Are you sure you want to add this contact in your cart?""
+      //send data to the server to add the element in our currentSessionUser
+      axios
+        .post(`http://localhost:9090/pro/search/add/${idNumber}`, {
+          form_bought: idNumber
+        })
+        .then(dbAPIRes => {
+          console.log(dbAPIRes);
+          cart = dbAPIRes.data.cart;
+          evt.target.className = `fas fa-check-circle`;
+          myCartBtn.textContent = `Mon panier (${cart.length})`;
+        }) // Check if our element has already been put her
+        .catch(err => {
+          console.log(err);
+        });
+      // Need to be sure when you change pages in the pro section you still have the right number in the cart
+    };
+  });
+}
