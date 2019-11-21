@@ -1,5 +1,5 @@
 var checkLists = document.querySelectorAll(".dropdown-check-list");
-
+var cart = [];
 // display the filters
 checkLists.forEach(checkList => {
   checkList.querySelectorAll(".anchor")[0].onclick = function(evt) {
@@ -50,9 +50,9 @@ allInput.forEach(input => {
         revenue: value
       })
       .then(myAPIRes => {
+        console.log(myAPIRes.data);
         const listUsers = myAPIRes.data;
         const tableContact = document.querySelector(".table");
-        console.log(tableContact);
         tableContact.innerHTML = `<div class="row header">
         <div class="cell">Have been looking since</div>
         <div class="cell">Objective(s)</div>
