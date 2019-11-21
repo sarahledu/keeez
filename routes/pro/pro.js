@@ -60,4 +60,9 @@ router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
     js: ["script", "filter"]
   });
 });
+
+router.post("/pro/search/:id", isLoggedIn.protectPro, (req, res) => {
+  //req.session.currentUser
+
+});
 module.exports = router;
