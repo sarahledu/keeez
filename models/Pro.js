@@ -10,10 +10,12 @@ const proSchema = new Schema(
     email: { type: String, required: true },
     password: { type: String, required: true },
     phone_number: { type: Number, required: false },
-    form_bought: {
-      type: [{ type: Schema.Types.ObjectId, ref: "Investor" }],
-      default: null
-    },
+
+    form_bought: [{ type: Schema.Types.ObjectId, ref: "Investor" }],
+    // form_bought: {
+    //   type: [{ type: Schema.Types.ObjectId, ref: "Investor" }],
+    //   default: null
+    // },
     type: { type: String, default: "pro" }
   },
   {

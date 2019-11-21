@@ -89,4 +89,26 @@ allInput.forEach(input => {
   };
 });
 
-//FILTER RANGE REVENUE
+//Add to cart
+const myCartBtn = document.getElementById("cart");
+const allBuyBtn = document.querySelectorAll(".fa-cart-arrow-down");
+allBuyBtn.forEach(btn => {
+  btn.onclick = function(evt) {
+    const idNumber = evt.target.getAttribute("data-id");
+    evt.preventDefault();
+    // Add a small cart 'Are you sure you want to add this contact in your cart?""
+    //send data to the server to add the element in our currentSessionUser
+    axios
+      .post(`http://localhost:9090/pro/search/add/${idNumber}`, {
+        form_bought: idNumber
+      })
+      .then(dbAPIRes => {
+        const cartNbr = dbAPIRes.data.cartNumber;
+        myCartBtn.textContent = `Mon panier (${cartNbr})`;
+      }) // Check if our element has already been put her
+      .catch(err => {
+        console.log(err);
+      });
+    // Need to be sure when you change pages in the pro section you still have the right number in the cart
+  };
+});

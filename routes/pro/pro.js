@@ -4,7 +4,7 @@ const isLoggedIn = require("./../../middlewares/isLoggedIn");
 const investorModel = require("../../models/Investor");
 
 router.get("/pro/", (req, res) => {
-  res.render("pro/index-pro", { css: ["pro","landing-pro"] });
+  res.render("pro/index-pro", { css: ["pro", "landing-pro"] });
 });
 
 router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
@@ -61,8 +61,15 @@ router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
   });
 });
 
-router.post("/pro/search/:id", isLoggedIn.protectPro, (req, res) => {
-  //req.session.currentUser
-
+router.post("/pro/search/add/:id", isLoggedIn.protectPro, (req, res) => {
+  const cart = req.session.currentCart;
+  // var cartNumber = cart.length;
+  console.log(cart.length);
+  console.log(cart);
+  if (!cart.includes(`${req.params.id}`)) {
+    cart.push(req.params.id);
+    console.log("Hello here is the new one :  ", cart.length);
+  }
+  res.send({ cartNumber: cart.length });
 });
 module.exports = router;
