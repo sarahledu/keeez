@@ -95,7 +95,7 @@ router.post("/pro/search/contacts", isLoggedIn.protectPro, (req, res) => {
             queryWorks,
             queryValue,
             { status: true },
-            { _id: dbProRes.form_bought }
+            { _id: dbProRes.form_bought   }
           ]
         })
         .then(dbRes => {
