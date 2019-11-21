@@ -1,28 +1,31 @@
 <div class="wrapper">
     <div class="table">
         <div class="row header">
-            <div class="cell">Have been looking since</div>
+            <div class="cell">Looking to buy</div>
             <div class="cell">Objective(s)</div>
             <div class="cell">Revenue</div>
             <div class="cell">Area</div>
             <div class="cell">Construction works</div>
             <div class="cell">Cart</div>
         </div>
-        
-            {{#each investors}}
 
-            {{> pro_filtered_contact_row}}
+        {{#each investors}}
 
-            {{/each}}
-            {{#unless investors}}
-            <div>
-                sorry no contacts yet
-            </div>
-            {{/unless}}
-        
+        {{> pro_filtered_contact_row}}
+
+        {{/each}}
+
+
 
 
     </div>
+    {{#unless investors}}
+
+    <div class="empty">
+        <img src="/img/empty.png" alt="empty">
+        <p>Sorry, no contact yet !</p>
+    </div>
+    {{/unless}}
 </div>
 
 {{!-- <div class="results-wrapper">

@@ -13,18 +13,53 @@
 
 .filter-zone {
     display: flex;
-    flex-direction: row;
-    height: 100px;
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+}
+
+.filters {
+    height: 120px;
+    display: flex;
     justify-content: flex-start;
 }
 
 
-
+.filters>div>div{
+    width: 150px;
+}
 .pro-result-table {
     width: 80%
 }
 
+#range-section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+.revenue{
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(5,1fr);
 
+}
+#display-value{
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+.revenue>label{
+    grid-row: 2/3;
+    grid-column: 1/2;
+    margin-right: 20px;
+    align-self: center;
+}
+.revenue>input{
+    grid-row: 2/3;
+    grid-column: 2/6;
+    align-self: center;
+    
+}
 
 .table-row {
     display: flex;
@@ -32,8 +67,8 @@
 
 hr {
     border: none;
-    border-top: 3px solid #4F5D75;
-    color: #4F5D75;
+    border-top: 3px solid white;
+    color: white;
     overflow: visible;
     text-align: center;
     height: 5px;
@@ -123,4 +158,29 @@ body {
     @media screen and (max-width: 580px) {
         padding: 2px 16px display: block
     }
+}
+
+.fa-cart-arrow-down{
+    color: #4F5D75;
+    font-size: 20px;
+    
+}
+
+.cell.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty>img{
+    height: 300px;
+    width: auto;
+}
+.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px
+
 }

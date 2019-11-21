@@ -1,0 +1,45 @@
+.promise-pro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 71vh;
+}
+
+#btn-pro {
+    padding: 15px 60px;
+    border-radius: 15px;
+    border: none;
+    background-color: #f48c6c;
+}
+
+#btn-pro>a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+}
+
+.promise-pro>h1 {
+    font-size: 3rem;
+
+}
+
+.promise-pro>h1,
+button {
+    margin: 30px;
+
+}
+
+.promise-pro>img {
+    height: 250px;
+    width: auto;
+}
+
+body {
+    background-image: url("/img/background-black.png");
+
+}
+
+/* footer{
+    opacity: 0.6;
+} */

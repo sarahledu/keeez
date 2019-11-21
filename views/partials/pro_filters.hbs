@@ -1,38 +1,47 @@
-<div id="list1" class="dropdown-check-list" tabindex="100">
-    <div class="anchor">Select objectives</div>
-    <ul class="items" class="items">
-        {{!-- {{#each investors.objectives}} --}}
-        <li><input data-obj="Decrease taxes" type="checkbox" />Decrease taxes</li>
-        <li><input data-obj="Optimize savings" type="checkbox" />Optimize savings</li>
-        <li><input data-obj="Prepare the future" type="checkbox" />Prepare the future</li>
-        <li><input data-obj="Increase incomes" type="checkbox" />Increase incomes</li>
-        {{!-- {{/each}} --}}
-    </ul>
-</div>
-<div id="list2" class="dropdown-check-list" tabindex="100">
-    <div class="anchor">Select areas</div>
-    <ul class="items" class="items">
-        <li><input data-area="One hour from Paris" type="checkbox" />Parisian surroundings</li>
-        <li><input data-area="Two hours from Paris" type="checkbox" />Up to 2 hours away from Paris</li>
-        <li><input data-area="Anywhere in France" type="checkbox" />Up to 4 hours away form Paris</li>
-    </ul>
-</div>
-<div id="list3" class="dropdown-check-list" tabindex="100">
-    <div class="anchor">Select timeframe</div>
-    <ul class="items" class="items">
-        <li><input data-time="Now" type="checkbox" />Now </li>
-        <li><input data-time="In the next few months" type="checkbox" />In the next few months</li>
-    </ul>
-</div>
-<div id="list4" class="dropdown-check-list" tabindex="100">
-    <div class="anchor">Select Construction Works</div>
-    <ul class="items" class="items">
-        <li><input data-const="Yes" type="checkbox" />Yes </li>
-        <li><input data-const="No" type="checkbox" />No</li>
-    </ul>
+<div class="filters">
+     <div id="list3" class="dropdown-check-list" tabindex="100">
+        <div class="anchor">Timeframe</div>
+        <ul class="items" class="items">
+            <li><input data-time="Now" type="checkbox" />Now </li>
+            <li><input data-time="In the next few months" type="checkbox" />In the next few months</li>
+        </ul>
+    </div>
+    <div id="list1" class="dropdown-check-list" tabindex="100">
+        <div class="anchor">Objectives</div>
+        <ul class="items" class="items">
+            {{!-- {{#each investors.objectives}} --}}
+            <li><input data-obj="Decrease taxes" type="checkbox" />Decrease taxes</li>
+            <li><input data-obj="Optimize savings" type="checkbox" />Optimize savings</li>
+            <li><input data-obj="Prepare the future" type="checkbox" />Prepare the future</li>
+            <li><input data-obj="Increase incomes" type="checkbox" />Increase incomes</li>
+            {{!-- {{/each}} --}}
+        </ul>
+    </div>
+    <div id="list2" class="dropdown-check-list" tabindex="100">
+        <div class="anchor">Areas</div>
+        <ul class="items" class="items">
+            <li><input data-area="East" type="checkbox" />East</li>
+            <li><input data-area="North" type="checkbox" />North</li>
+            <li><input data-area="South" type="checkbox" />South</li>
+            <li><input data-area="South-West" type="checkbox" />South-West</li>
+            <li><input data-area="West" type="checkbox" />West</li>
+        </ul>
+    </div>
+   
+    <div id="list4" class="dropdown-check-list" tabindex="100">
+        <div class="anchor">Construction Works</div>
+        <ul class="items" class="items">
+            <li><input data-const="Yes" type="checkbox" />Yes </li>
+            <li><input data-const="No" type="checkbox" />No</li>
+        </ul>
+    </div>
 </div>
 
 <div id="range-section" class="items">
-    <p id="display-value">0€ and more</p>
-    <input id="range-input" step="500" type="range" name="points" min="0" max="20000" value="0">
+    <div class="revenue">
+        <p id="display-value">0€ and more</p>
+
+        <label for="points">Revenue/month:</label>
+        <input id="range-input" step="500" class="slider" type="range" name="points" min="0" max="20000" value="0">
+    </div>
 </div>
