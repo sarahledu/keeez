@@ -9,11 +9,9 @@ router.get("/pro/", (req, res) => {
 });
 
 router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
-  // console.log(req.session.currentUser.form_bought);
   proModel
     .findById(req.session.currentUser._id)
     .then(currentUser => {
-      console.log(currentUser.form_bought);
       investorModel
         .find({
           $and: [{ status: true }, { _id: { $nin: currentUser.form_bought } }]
@@ -68,14 +66,19 @@ router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
 });
 
 router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
-  investorModel
-    .find()
-    .then(dbRes => {
-      res.render("pro/dashboard", {
-        investors: dbRes,
-        css: ["filter", "styles", "pro"],
-        js: ["script", "filter"]
-      });
+  proModel
+    .findById(res.locals.currentUser._id)
+    .then(dbResPro => {
+      investorModel
+        .find({ _id: dbResPro.form_bought })
+        .then(dbResInv => {
+          res.render("pro/dashboard", {
+            investors: dbResInv,
+            css: ["filter-buy", "styles", "pro"],
+            js: ["script", "filter"]
+          });
+        })
+        .catch(err => console.log(err));
     })
     .catch(err => console.log(err));
 });

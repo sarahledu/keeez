@@ -1,18 +1,4 @@
 var checkLists = document.querySelectorAll(".dropdown-check-list");
-var cart = [];
-
-//Get Cart
-axios
-  .get(`/pro/get-cart`)
-  .then(res => {
-    console.log("cart", res);
-    cart = res.data.cart;
-    document.querySelectorAll(".fa-plus-circle").forEach(cartBtn => {
-      if (cart.includes(cartBtn.getAttribute("data-id")))
-        cartBtn.classList = "fas fa-check-circle";
-    });
-  })
-  .catch(err => console.log(err));
 
 // display the filters
 checkLists.forEach(checkList => {
