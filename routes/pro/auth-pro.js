@@ -8,7 +8,7 @@ const companyModel = require("../../models/Company");
 
 //signin routes
 router.get("/pro/signin", (req, res) => {
-  res.render("auth/pro/signin", { css: ["signin"] });
+  res.render("auth/pro/signin", { css: ["signin", "landing-pro"] });
 });
 
 router.post("/pro/signin", (req, res) => {
@@ -23,7 +23,7 @@ router.post("/pro/signin", (req, res) => {
             text: "This user account has not been found..",
             status: "wrong"
           },
-          css: ["signin"]
+          css: ["signin", "landing-pro"]
         });
       }
       // user has been found in DB !
@@ -33,7 +33,8 @@ router.post("/pro/signin", (req, res) => {
         return res.redirect("/pro/dashboard");
       } else {
         return res.render("auth/pro/signin", {
-          msg: { text: "Password is wrong..", status: "wrong" }
+          msg: { text: "Password is wrong..", status: "wrong" },
+          css: ["signin", "landing-pro"]
         });
       }
     })
@@ -45,7 +46,7 @@ router.post("/pro/signin", (req, res) => {
 
 //signup routes
 router.get("/pro/signup", (req, res) => {
-  res.render("auth/pro/signup", { css: ["signup"] });
+  res.render("auth/pro/signup", { css: ["signup", "landing-pro"] });
 });
 router.post("/pro/signup", (req, res) => {
   const user = req.body;
@@ -54,7 +55,8 @@ router.post("/pro/signup", (req, res) => {
     .then(dbRes => {
       if (dbRes)
         return res.render("auth/pro/signup", {
-          msg: { text: "This account already exists!", status: "wrong" }
+          msg: { text: "This account already exists!", status: "wrong" },
+          css: ["signup", "landing-pro"]
         }); //
 
       const salt = bcrypt.genSaltSync(10); // cryptography librairie

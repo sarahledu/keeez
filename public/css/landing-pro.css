@@ -37,7 +37,7 @@ button {
 
 body {
     background-image: url("/img/background-black.png");
-
+    height: 100vh;
 }
 
 /* footer{
