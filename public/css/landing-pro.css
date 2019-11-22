@@ -24,10 +24,13 @@
 
 }
 
-.promise-pro>h1,
-button {
+.promise-pro>h1 {
     margin: 30px;
 
+}
+
+button {
+    margin: 0px;
 }
 
 .promise-pro>img {

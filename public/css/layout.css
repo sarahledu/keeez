@@ -8,6 +8,15 @@ body {
     font-size: 15px;
 }
 
+/* 
+button,
+.btn,
+.button,
+.button-primary,
+.button-link-form {
+    outline: none;
+} */
+
 
 
 .main-nav {
@@ -83,4 +92,3 @@ body {
 .main-footer * {
     color: white;
 }
-

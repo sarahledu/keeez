@@ -1,0 +1,25 @@
+#banner {
+    background-color: #4F5D75;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40vh;
+    color: white;
+    justify-content: center;
+}
+
+#banner * {
+    margin: 15px 0;
+}
+
+.button {
+    background-color: #f48c6c;
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+.wrapper {}
