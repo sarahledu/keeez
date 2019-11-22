@@ -136,6 +136,7 @@ router.post("/pro/search/add/:id", isLoggedIn.protectPro, (req, res) => {
   if (!cart.includes(`${req.params.id}`)) {
     cart.push(req.params.id);
   }
+  
   res.send({ cart: cart });
 });
 module.exports = router;
