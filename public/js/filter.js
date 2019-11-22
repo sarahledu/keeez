@@ -38,6 +38,7 @@ const rangeSelector = document.getElementById("range-input");
 const budgetSelector = document.getElementById("range-budget");
 const displayValue = document.getElementById("display-value");
 const displayValueBudget = document.getElementById("display-value-2");
+
 allInput.forEach(input => {
   input.oninput = function(evt) {
     const checkedEmtObj = [];

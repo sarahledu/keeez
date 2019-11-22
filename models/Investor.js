@@ -41,7 +41,7 @@ const investorSchema = new Schema(
       enum: ["Flat", "House", "Building", "Any"],
       default: "Any"
     },
-    budget: { type: Number, defaut: 0 },
+    budget: { type: Number, defaut: "0" },
     construction_works: {
       type: String,
       enum: ["Choose", "Yes", "No"],

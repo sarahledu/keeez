@@ -31,7 +31,7 @@ router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
 
 router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
   var queryValue = { total_revenue: { $gt: req.body.revenue } };
-  var queryBudget= { budget: { $gt: req.body.budgeto }}
+  var queryBudget = { budget: { $gt: req.body.budgeto } };
   var queryObj = {};
   var queryTime = {};
   var queryArea = {};
@@ -68,10 +68,12 @@ router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
 });
 router.post("/pro/search/contacts", isLoggedIn.protectPro, (req, res) => {
   var queryValue = { total_revenue: { $gt: req.body.revenue } };
+  var queryBudget = { budget: { $gt: req.body.budgeto } };
   var queryObj = {};
   var queryTime = {};
   var queryArea = {};
   var queryWorks = {};
+
   // var elmtAvailable = { _id: { $nin: req.session.currentUser.form_bought } };
   if (req.body.objectives.length > 0) {
     queryObj = { objectives: req.body.objectives };
@@ -96,8 +98,9 @@ router.post("/pro/search/contacts", isLoggedIn.protectPro, (req, res) => {
             queryArea,
             queryWorks,
             queryValue,
+            queryBudget,
             { status: true },
-            { _id: dbProRes.form_bought   }
+            { _id: dbProRes.form_bought }
           ]
         })
         .then(dbRes => {
@@ -126,6 +129,19 @@ router.get("/pro/dashboard", isLoggedIn.protectPro, (req, res) => {
     })
     .catch(err => console.log(err));
 });
+router.get("/pro/dashboard/test", isLoggedIn.protectPro, (req, res) => {
+  proModel
+    .findById(res.locals.currentUser._id)
+    .then(dbResPro => {
+      investorModel
+        .find({ _id: dbResPro.form_bought })
+        .then(dbResInv => {
+          res.send(dbResInv);
+        })
+        .catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
+});
 
 router.get("/pro/get-cart", (req, res) => {
   if (req.session.currentCart) res.send({ cart: req.session.currentCart });
@@ -138,7 +154,7 @@ router.post("/pro/search/add/:id", isLoggedIn.protectPro, (req, res) => {
   if (!cart.includes(`${req.params.id}`)) {
     cart.push(req.params.id);
   }
-  
+
   res.send({ cart: cart });
 });
 module.exports = router;
