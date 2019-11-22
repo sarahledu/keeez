@@ -8,7 +8,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 71vh;
+    height: 86vh;
     /* background-color: white; */
 }
 
@@ -84,4 +84,11 @@ body {
 
 #img-sign {
     width: 150px;
+}
+
+#form_user {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+
 }
