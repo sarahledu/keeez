@@ -31,6 +31,7 @@ router.get("/pro/search", isLoggedIn.protectPro, (req, res) => {
 
 router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
   var queryValue = { total_revenue: { $gt: req.body.revenue } };
+  var queryBudget= { budget: { $gt: req.body.budgeto }}
   var queryObj = {};
   var queryTime = {};
   var queryArea = {};
@@ -55,6 +56,7 @@ router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
         queryArea,
         queryWorks,
         queryValue,
+        queryBudget,
         { status: true },
         { _id: { $nin: req.session.currentUser.form_bought } }
       ]
