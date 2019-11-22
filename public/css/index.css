@@ -26,18 +26,18 @@
 .value-proposition>div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-   
+   max-width: 33%;
     
 }
 
 .value-proposition>div> p{
     color: white;
     font-size: 1.5rem;
-    
+    font-weight:500;
 }
-.value-proposition>div>img {
+.value-proposition>div>a>img {
     height: 260px;
     width: auto;
 }
@@ -78,4 +78,12 @@ body {
 
 .section2{
     height: 100vh;
+}
+
+.text-expl{
+  max-width: 60%;
+  padding: 15px;
+  /* text-indent: 20px; */
+  color: white;
+  text-align: center;
 }
