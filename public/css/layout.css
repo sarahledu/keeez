@@ -8,6 +8,8 @@ body {
     font-size: 15px;
 }
 
+
+
 .main-nav {
     height: 15vh;
     padding: 0 60px;
@@ -81,3 +83,4 @@ body {
 .main-footer * {
     color: white;
 }
+

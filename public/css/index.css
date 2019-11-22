@@ -14,7 +14,7 @@
 }
 .landing-container>h1{
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem;
     color: white;
 }
 .value-proposition {
@@ -32,9 +32,10 @@
     
 }
 
-.value-proposition>div> h2{
+.value-proposition>div> p{
     color: white;
-    font-size: 1.9rem;
+    font-size: 1.5rem;
+    
 }
 .value-proposition>div>img {
     height: 260px;
