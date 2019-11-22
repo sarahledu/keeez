@@ -1,23 +1,21 @@
 var checkLists = document.querySelectorAll(".dropdown-check-list");
 var cart = [];
 
-
 //permet de visualiser quels éléments sont au panier au moment même après un refresh
-function verifyCartAfterRefresh(){
-  axios.get("/pro/get-cart")
-  .then(dbApiRes=>{
-   
-    dbApiRes.data.cart.forEach(elem=>{
-      console.log(elem)
-      const putIntoCartItems = document.getElementById(elem)
-      putIntoCartItems.className="fas fa-check-circle"
-      
+function verifyCartAfterRefresh() {
+  axios
+    .get("/pro/get-cart")
+    .then(dbApiRes => {
+      dbApiRes.data.cart.forEach(elem => {
+        console.log(elem);
+        const putIntoCartItems = document.getElementById(elem);
+        putIntoCartItems.className = "fas fa-check-circle";
+      });
     })
-    
-  }).catch(err=>console.log(err))
+    .catch(err => console.log(err));
 }
 
-window.onload = verifyCartAfterRefresh()
+window.onload = verifyCartAfterRefresh();
 
 // display the filters
 checkLists.forEach(checkList => {
@@ -37,7 +35,9 @@ checkLists.forEach(checkList => {
 //CHECKBOX FILTERS
 const allInput = document.querySelectorAll(".items input");
 const rangeSelector = document.getElementById("range-input");
+const budgetSelector = document.getElementById("range-budget");
 const displayValue = document.getElementById("display-value");
+const displayValueBudget = document.getElementById("display-value-2");
 allInput.forEach(input => {
   input.oninput = function(evt) {
     const checkedEmtObj = [];
@@ -45,7 +45,9 @@ allInput.forEach(input => {
     const checkedEmtArea = [];
     const checkedEmtWorks = [];
     const value = rangeSelector.value;
+    const budget = budgetSelector.value;
     displayValue.textContent = `${value}€ and more`;
+    displayValueBudget.textContent = `${budget}€ and more`;
 
     allInput.forEach(i => {
       if (i.checked === true) {
@@ -66,7 +68,8 @@ allInput.forEach(input => {
         timeline: checkedEmtTime,
         areas: checkedEmtArea,
         construction_works: checkedEmtWorks,
-        revenue: value
+        revenue: value,
+        budgeto: budget
       })
       .then(myAPIRes => {
         console.log(myAPIRes.data);
@@ -75,6 +78,7 @@ allInput.forEach(input => {
         tableContact.innerHTML = `<div class="row header">
         <div class="cell">Have been looking since</div>
         <div class="cell">Objective(s)</div>
+        <div class="cell">Budget</div>
         <div class="cell">Revenue</div>
         <div class="cell">Area</div>
         <div class="cell">Open to construction works</div>
@@ -88,6 +92,9 @@ allInput.forEach(input => {
           </div>
           <div class="cell" data-title="obj">
             ${user.objectives}
+          </div>
+          <div class="cell" data-title="budg">
+            ${user.budget}
           </div>
           <div class="cell" data-title="rev">
             ${user.total_revenue}
