@@ -15,7 +15,7 @@
         <div class="total-price">{{currentCart.price}}€</div>
     </div>
     <div class="button-section">
-        <a href="/pro/checkout/{{currentUser._id}}"><button class="btn">Buy</button></a>
+        <a href="/pro/checkout/{{currentUser._id}}"><button class="btn" id="buttonCheckout">Check out</button></a>
     </div>
     {{else}}
     <div class="title">
@@ -25,7 +25,7 @@
         <img src="img/empty.png" alt="oops">
     </div>
     <div class="button-section">
-        <a href="/pro/search/"><button class="btn">Let's hunt</button></a>
+        <a href="/pro/search/"><button class="btn" id="submit">Let's hunt</button></a>
     </div>
     {{/if}}
 
