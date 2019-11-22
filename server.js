@@ -4,7 +4,7 @@ require("./config/mongo"); // database connection setup
 require("./utils/hbs_helper");
 
 //Stripe keys
-  const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
 // dependencies injection
 const express = require("express");
@@ -102,6 +102,10 @@ server.use(blogRouter);
 server.use(proRouter);
 server.use(contactRouter);
 server.use(cartRouter);
+
+server.use(function(req, res, next) {
+  res.status(404).render("error404", { css: ["error"] });
+});
 
 server.listen(process.env.PORT, () => {
   console.log(`server runs @ : http://localhost:${process.env.PORT}`);
