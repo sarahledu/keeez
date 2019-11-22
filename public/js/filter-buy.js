@@ -5,7 +5,7 @@ function makesTheIconCartGoAway() {
   axios
     .get("/pro/dashboard/test")
     .then(ApiDbRes => {
-      console.log(ApiDbRes.data)
+      console.log(ApiDbRes.data);
       const listUsers = ApiDbRes.data;
       const tableContact = document.querySelector(".table");
 
@@ -123,7 +123,9 @@ allInput.forEach(input => {
         <div class="cell">Revenue</div>
         <div class="cell">Area</div>
         <div class="cell">Open to construction works</div>
-      
+        <div class="cell">Name</div>
+        <div class="cell">Number</div>
+        <div class="cell">Email</div>
     </div>`;
         listUsers.forEach(user => {
           console.log(user);
@@ -146,6 +148,15 @@ allInput.forEach(input => {
           <div class="cell" data-title="works">
             ${user.construction_works}
           </div>
+          <div class="cell" data-title="name">
+          ${user.firstname} ${user.lastname}
+        </div>
+        <div class="cell" data-title="number">
+          ${user.phone_number}
+        </div>
+        <div class="cell" data-title="email">
+          ${user.email}
+        </div>
         </div>`;
         });
       })
