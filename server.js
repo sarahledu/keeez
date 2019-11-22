@@ -3,12 +3,15 @@ require("dotenv").config(); // import all key/value pairs from .env in process.e
 require("./config/mongo"); // database connection setup
 require("./utils/hbs_helper");
 
+//Stripe keys
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+
 // dependencies injection
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
 const session = require("express-session");
-
+const stripe = require("stripe")(`${stripeSecretKey}`);
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
 const cookieParser = require("cookie-parser");
@@ -20,10 +23,7 @@ const server = express();
 
 // Allow server to parse body from POST Request
 server.use(express.urlencoded({ extended: true }));
-/**
- *  HEY YOU ! GOOD that you read comments, the line below is MANDATORY :)
- */
-// Allow server to parse JSON from AJAX Request
+
 server.use(express.json());
 
 // Make everything inside of public/ available to the browser (styles, images, frontend scripts)

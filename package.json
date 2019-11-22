@@ -4,6 +4,7 @@
   "description": "Good news : Your team has been selected by our final client !",
   "main": "server.js",
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.14.0",
     "connect-mongo": "^3.0.0",
@@ -14,7 +15,8 @@
     "hbs": "^4.0.4",
     "mongoose": "^5.7.10",
     "multer": "^1.4.2",
-    "multer-storage-cloudinary": "^2.2.1"
+    "multer-storage-cloudinary": "^2.2.1",
+    "stripe": "^7.13.1"
   },
   "devDependencies": {},
   "scripts": {
