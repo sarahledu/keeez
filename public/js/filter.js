@@ -1,5 +1,24 @@
 var checkLists = document.querySelectorAll(".dropdown-check-list");
 var cart = [];
+
+
+//permet de visualiser quels éléments sont au panier au moment même après un refresh
+function verifyCartAfterRefresh(){
+  axios.get("/pro/get-cart")
+  .then(dbApiRes=>{
+   
+    dbApiRes.data.cart.forEach(elem=>{
+      console.log(elem)
+      const putIntoCartItems = document.getElementById(elem)
+      putIntoCartItems.className="fas fa-check-circle"
+      
+    })
+    
+  }).catch(err=>console.log(err))
+}
+
+window.onload = verifyCartAfterRefresh()
+
 // display the filters
 checkLists.forEach(checkList => {
   checkList.querySelectorAll(".anchor")[0].onclick = function(evt) {
@@ -80,7 +99,7 @@ allInput.forEach(input => {
             ${user.construction_works}
           </div>
           <div class="cell icon" data-title="cart">
-          <a href="/${user._id}" data-id="${user._id}" 
+          <a href="/${user._id}" id={{this._id}} data-id="${user._id}" 
           class="fas ${
             !cart.includes(user._id) ? "fa-plus-circle" : "fa-check-circle"
           }"></a>
