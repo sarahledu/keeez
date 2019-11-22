@@ -151,9 +151,11 @@ allInput.forEach(input => {
           <div class="cell" data-title="name">
           ${user.firstname} ${user.lastname}
         </div>
+       
         <div class="cell" data-title="number">
           ${user.phone_number}
         </div>
+  
         <div class="cell" data-title="email">
           ${user.email}
         </div>
