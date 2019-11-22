@@ -60,7 +60,6 @@ router.post("/form-2", isLoggedIn.protectInvestor, (req, res) => {
         user.timeline !== "Choose";
         
       page2 =newInfo.marital_status !== "Choose" &&
-      newInfo.nbr_child !== "0" &&
       newInfo.total_revenue !== "0" &&
       newInfo.monthly_savings !== "0" &&
       newInfo.revenue_taxes !== "0";
