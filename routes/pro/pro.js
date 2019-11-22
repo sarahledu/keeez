@@ -67,7 +67,6 @@ router.post("/pro/search", isLoggedIn.protectPro, (req, res) => {
     .catch();
 });
 
-
 router.post("/pro/search/contacts", isLoggedIn.protectPro, (req, res) => {
   var queryValue = { total_revenue: { $gt: req.body.revenue } };
   var queryBudget = { budget: { $gt: req.body.budgeto } };
@@ -138,7 +137,7 @@ router.get("/pro/dashboard/test", isLoggedIn.protectPro, (req, res) => {
       investorModel
         .find({ _id: dbResPro.form_bought })
         .then(dbResInv => {
-          console.log(dbResInv)
+          console.log(dbResInv);
           res.send(dbResInv);
         })
         .catch(err => console.log(err));
@@ -159,5 +158,9 @@ router.post("/pro/search/add/:id", isLoggedIn.protectPro, (req, res) => {
   }
 
   res.send({ cart: cart });
+});
+
+router.post("/pro/contact", (req, res) => {
+  res.redirect("/pro");
 });
 module.exports = router;
