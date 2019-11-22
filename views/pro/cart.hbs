@@ -1,22 +1,32 @@
 {{> nav_bar_pro}}
 <h2>My cart</h2>
 <div class="shopping-cart">
+    {{#if currentCart.elements.length}}
     <div class="title">
         You're one step from very qualified contacts!
     </div>
-
     <div class="item">
         <div class="description">
             <p>Contact</p>
         </div>
-
         <div class="quantity">
             <p>x {{currentCart.elements.length}}</p>
         </div>
-
         <div class="total-price">{{currentCart.price}}€</div>
     </div>
     <div class="button-section">
         <a href="/pro/checkout/{{currentUser._id}}"><button class="btn">Buy</button></a>
     </div>
+    {{else}}
+    <div class="title">
+        <p>Let's put some cool contacts in your glamor cart..!</p>
+    </div>
+    <div>
+        <img src="img/empty.png" alt="oops">
+    </div>
+    <div class="button-section">
+        <a href="/pro/search/"><button class="btn">Let's hunt</button></a>
+    </div>
+    {{/if}}
+
 </div>

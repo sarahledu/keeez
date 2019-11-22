@@ -29,7 +29,6 @@ router.post("/pro/signin", (req, res) => {
       if (bcrypt.compareSync(user.password, dbRes.password)) {
         req.session.currentUser = dbRes;
         req.session.currentCart = [];
-        console.log(req.session.currentUser);
         return res.redirect("/pro/dashboard");
       } else {
         return res.render("auth/pro/signin", {

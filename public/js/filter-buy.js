@@ -1,5 +1,5 @@
 var checkLists = document.querySelectorAll(".dropdown-check-list");
-var cart = [];
+
 // display the filters
 checkLists.forEach(checkList => {
   checkList.querySelectorAll(".anchor")[0].onclick = function(evt) {
@@ -42,7 +42,7 @@ allInput.forEach(input => {
       }
     });
     axios
-      .post("/pro/search", {
+      .post("/pro/search/contacts", {
         objectives: checkedEmtObj,
         timeline: checkedEmtTime,
         areas: checkedEmtArea,
@@ -50,9 +50,9 @@ allInput.forEach(input => {
         revenue: value
       })
       .then(myAPIRes => {
-        console.log(myAPIRes.data);
         const listUsers = myAPIRes.data;
         const tableContact = document.querySelector(".table");
+        console.log(tableContact);
         tableContact.innerHTML = `<div class="row header">
         <div class="cell">Have been looking since</div>
         <div class="cell">Objective(s)</div>
@@ -79,45 +79,9 @@ allInput.forEach(input => {
           <div class="cell" data-title="works">
             ${user.construction_works}
           </div>
-          <div class="cell icon" data-title="cart">
-          <a href="/${user._id}" data-id="${user._id}" 
-          class="fas ${
-            !cart.includes(user._id) ? "fa-plus-circle" : "fa-check-circle"
-          }"></a>
-          </div>
         </div>`;
         });
-        initListener();
       })
       .catch(err => console.log(err));
   };
 });
-
-//Add to cart
-const myCartBtn = document.getElementById("cart");
-initListener();
-function initListener() {
-  const allBuyBtn = document.querySelectorAll(".fa-plus-circle");
-  allBuyBtn.forEach(btn => {
-    btn.onclick = function(evt) {
-      const idNumber = evt.target.getAttribute("data-id");
-      evt.preventDefault();
-      // Add a small cart 'Are you sure you want to add this contact in your cart?""
-      //send data to the server to add the element in our currentSessionUser
-      axios
-        .post(`/pro/search/add/${idNumber}`, {
-          form_bought: idNumber
-        })
-        .then(dbAPIRes => {
-          console.log(dbAPIRes);
-          cart = dbAPIRes.data.cart;
-          evt.target.className = `fas fa-check-circle`;
-          myCartBtn.textContent = `Mon panier (${cart.length})`;
-        }) // Check if our element has already been put her
-        .catch(err => {
-          console.log(err);
-        });
-      // Need to be sure when you change pages in the pro section you still have the right number in the cart
-    };
-  });
-}
