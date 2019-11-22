@@ -43,7 +43,7 @@ router.post("/signin", (req, res) => {
 
 //signup routes
 router.get("/signup", (req, res) => {
-  res.render("auth/investor/signup");
+  res.render("auth/investor/signup", {css: ["signup"]});
 });
 router.post("/signup", (req, res) => {
   const user = req.body;
