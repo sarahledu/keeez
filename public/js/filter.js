@@ -7,7 +7,6 @@ function verifyCartAfterRefresh() {
     .get("/pro/get-cart")
     .then(dbApiRes => {
       dbApiRes.data.cart.forEach(elem => {
-        console.log(elem);
         const putIntoCartItems = document.getElementById(elem);
         putIntoCartItems.className = "fas fa-check-circle";
       });

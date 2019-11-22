@@ -4,7 +4,7 @@ require("./config/mongo"); // database connection setup
 require("./utils/hbs_helper");
 
 //Stripe keys
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+  const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
 // dependencies injection
 const express = require("express");
